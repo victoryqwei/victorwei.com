@@ -13,6 +13,9 @@ function App() {
       <div className="card">
         <p>Website is currently under construction. Check back later for updates!</p>
       </div>
+      <p className="old-website">
+        Or check out my old personal website <a href="https://old.victorwei.com">here</a>
+      </p>
     </>
   );
 }
