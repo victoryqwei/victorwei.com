@@ -6,24 +6,15 @@ import { AcrylicBackgroundChakraProps } from "./gui/constants";
 import Typed from "react-typed";
 
 const NavBar: React.FC = () => {
-  // new:
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  // new:
   const [visible, setVisible] = useState(true);
 
-  // new function:
   const handleScroll = () => {
-    // find current scroll position
     const currentScrollPos = window.pageYOffset;
-
-    // set state based on location info (explained in more detail below)
     setVisible(prevScrollPos > currentScrollPos);
-
-    // set state to new scroll position
     setPrevScrollPos(currentScrollPos);
   };
 
-  // new useEffect:
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -34,25 +25,34 @@ const NavBar: React.FC = () => {
     <Box width="100%" position="fixed" left="0" top="0">
       <SlideFade in={visible} offsetY="-3.8rem">
         <HStack justifyContent="space-between" p="1rem" {...AcrylicBackgroundChakraProps}>
-          <HStack gap={0}>
-            <Link href="https://victorwei.com">
+          <Link
+            href="https://victorwei.com"
+            style={{
+              textDecoration: "none",
+            }}
+            role="group">
+            <HStack gap={0}>
               <Box pr="1em">
                 <Image
                   src={vectorLogo}
                   alt="Vector logo"
                   height="1.8rem"
                   transition="filter 300ms"
-                  _hover={{
+                  _groupHover={{
                     filter: "drop-shadow(0 0 2em red)",
                   }}
                 />
               </Box>
-            </Link>
+              <Text fontSize="1.5em">Victor Wei</Text>
+            </HStack>
+          </Link>
 
-            <Heading fontSize="1.5em">Victor Wei</Heading>
+          <HStack gap="2em" mr="1em">
+            <Link>About</Link>
+            <Link>Experience</Link>
+            <Link>Projects</Link>
+            <Link>Contact</Link>
           </HStack>
-
-          <Button>Contact Me</Button>
         </HStack>
       </SlideFade>
     </Box>
