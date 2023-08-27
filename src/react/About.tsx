@@ -8,7 +8,7 @@ const About: React.FC = () => {
 
   return (
     <Box id="about" pt="6em" px="2em">
-      <Heading fontSize="2xl" mb="2em">
+      <Heading fontSize="2xl" mb="1em">
         About Me
       </Heading>
       <HStack>
