@@ -1,7 +1,7 @@
-import { Box, Button, Center, HStack, Heading, Text, VStack } from "@chakra-ui/react";
-import Typed from "react-typed";
+import { Box, Center, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import "./index.css";
 import NavBar from "./react/NavBar";
+import Title from "./react/Title";
 
 const WorkExperience: React.FC = () => {
   return (
@@ -56,27 +56,7 @@ const App: React.FC = () => {
 
         <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%">
           <VStack alignItems="flex-start">
-            <Center h="100vh" w="100%" textAlign="center">
-              <VStack>
-                <Heading fontSize="3em" mb="0.5em">
-                  Hey there, I'm Victor.
-                </Heading>
-                <Text fontSize="1.2em" mb="1em">
-                  I'm a{" "}
-                  <Typed
-                    style={{
-                      fontSize: "1em",
-                    }}
-                    strings={["web developer.", "game developer.", "ML enthusiast."]}
-                    typeSpeed={40}
-                    backSpeed={50}
-                    loop
-                  />
-                </Text>
-
-                <Button m={50}>Learn More</Button>
-              </VStack>
-            </Center>
+            <Title />
 
             <Box h="100vh">
               <Heading fontSize="lg" mb="0.5em">
