@@ -1,9 +1,9 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text, forwardRef } from "@chakra-ui/react";
 
-const About: React.FC = () => {
+const About = forwardRef((_, ref) => {
   return (
-    <Box h="100vh">
-      <Heading fontSize="lg" mb="0.5em">
+    <Box h="100vh" ref={ref}>
+      <Heading fontSize="2xl" mb="0.5em">
         About Me
       </Heading>
       <Text>
@@ -12,6 +12,6 @@ const About: React.FC = () => {
       </Text>
     </Box>
   );
-};
+});
 
 export default About;
