@@ -2,7 +2,7 @@ import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 
 const WorkExperience: React.FC = () => {
   return (
-    <Box h="100vh" id="experience" py="6em">
+    <Box id="experience" py="6em" px="2em">
       <Heading fontSize="2xl" mb="0.5em">
         Work Experience
       </Heading>
@@ -11,15 +11,15 @@ const WorkExperience: React.FC = () => {
         <Box>
           <HStack>
             <Heading fontSize="md">ArenaX Labs</Heading>
-            <Text as="i">Software Developer</Text>
+            <Text as="i">Game Developer</Text>
           </HStack>
 
           <Text>May 2021 - August 2021</Text>
         </Box>
         <Box>
           <HStack>
-            <Heading fontSize="md">ArenaX Labs</Heading>
-            <Text as="i">Software Developer</Text>
+            <Heading fontSize="md">Miniblox</Heading>
+            <Text as="i">Co-Founder</Text>
           </HStack>
 
           <Text>May 2021 - August 2021</Text>

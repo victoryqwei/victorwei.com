@@ -22,7 +22,7 @@ const Title: React.FC = () => {
           />
         </Text>
 
-        <Link href="#about">
+        <Link href="#about" my="3em">
           <Button
             backgroundColor="rgba(0, 0, 0, 0)"
             border="
@@ -31,8 +31,7 @@ const Title: React.FC = () => {
             p="1em"
             _hover={{
               backgroundColor: "rgba(255, 255, 255, 0.1)",
-            }}
-            my="3em">
+            }}>
             <HStack gap="0.3em">
               <Text>Learn More</Text>
               <ArrowForwardIcon />
