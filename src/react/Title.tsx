@@ -32,7 +32,7 @@ const Title: React.FC = () => {
             _hover={{
               backgroundColor: "rgba(255, 255, 255, 0.1)",
             }}
-            mt="2em">
+            my="3em">
             <HStack gap="0.3em">
               <Text>Learn More</Text>
               <ArrowForwardIcon />

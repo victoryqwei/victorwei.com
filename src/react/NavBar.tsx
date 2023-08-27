@@ -3,6 +3,7 @@ import { Box, HStack, Image, Link, Menu, MenuButton, MenuItem, MenuList, SlideFa
 import { useEffect, useState } from "react";
 import vectorLogo from "../assets/vector.png";
 import { AcrylicBackgroundChakraProps } from "../gui/constants";
+import { useMobile } from "../utils/hooks";
 
 const NavBar: React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -20,19 +21,7 @@ const NavBar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  const [width, setWidth] = useState<number>(window.innerWidth);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  const isMobile = width <= 768;
+  const [isMobile] = useMobile();
 
   return (
     <Box width="100%" position="fixed" left="0" top="0">
