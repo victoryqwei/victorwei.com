@@ -1,14 +1,8 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Button, Center, HStack, Heading, Text, VStack } from "@chakra-ui/react";
+import { Button, Center, HStack, Heading, Link, Text, VStack } from "@chakra-ui/react";
 import Typed from "react-typed";
 
-const Title: React.FC<{
-  aboutRef: React.RefObject<HTMLDivElement>;
-}> = ({ aboutRef }) => {
-  const handleClick = () => {
-    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+const Title: React.FC = () => {
   return (
     <Center h="100vh" w="100%" textAlign="center">
       <VStack>
@@ -28,21 +22,23 @@ const Title: React.FC<{
           />
         </Text>
 
-        <Button
-          backgroundColor="rgba(0, 0, 0, 0)"
-          border="
+        <Link href="#about">
+          <Button
+            backgroundColor="rgba(0, 0, 0, 0)"
+            border="
                 1px solid white"
-          color="white"
-          p="1em"
-          _hover={{
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-          }}
-          mt="2em">
-          <HStack gap="0.3em" onClick={handleClick}>
-            <Text>Learn More</Text>
-            <ArrowForwardIcon />
-          </HStack>
-        </Button>
+            color="white"
+            p="1em"
+            _hover={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+            }}
+            mt="2em">
+            <HStack gap="0.3em">
+              <Text>Learn More</Text>
+              <ArrowForwardIcon />
+            </HStack>
+          </Button>
+        </Link>
       </VStack>
     </Center>
   );

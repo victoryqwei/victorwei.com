@@ -71,10 +71,10 @@ const NavBar: React.FC = () => {
             </Menu>
           ) : (
             <HStack gap="2em" mr="1em">
-              <Link>About</Link>
-              <Link>Experience</Link>
-              <Link>Projects</Link>
-              <Link>Contact</Link>
+              <Link href="#about">About</Link>
+              <Link href="#experience">Experience</Link>
+              <Link href="#projects">Projects</Link>
+              <Link href="#contact">Contact</Link>
             </HStack>
           )}
         </HStack>

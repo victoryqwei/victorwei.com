@@ -4,10 +4,8 @@ import NavBar from "./react/NavBar";
 import Title from "./react/Title";
 import WorkExperience from "./react/Work";
 import About from "./react/About";
-import { useRef } from "react";
 
 const App: React.FC = () => {
-  const aboutRef = useRef(null);
   return (
     <>
       <Center color="rgba(255, 255, 255, 0.87)">
@@ -15,9 +13,9 @@ const App: React.FC = () => {
 
         <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%">
           <VStack alignItems="flex-start">
-            <Title aboutRef={aboutRef} />
+            <Title />
 
-            <About ref={aboutRef} />
+            <About />
 
             <WorkExperience />
 
