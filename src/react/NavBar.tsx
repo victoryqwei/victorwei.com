@@ -52,10 +52,18 @@ const NavBar: React.FC = () => {
             <Menu>
               <MenuButton as={HamburgerIcon}></MenuButton>
               <MenuList color="black">
-                <MenuItem>About</MenuItem>
-                <MenuItem>Experience</MenuItem>
-                <MenuItem>Projects</MenuItem>
-                <MenuItem>Contact</MenuItem>
+                <MenuItem>
+                  <Link href="#about">About</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="#experience">Experience</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="#projects">Projects</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="#contact">Contact</Link>
+                </MenuItem>
               </MenuList>
             </Menu>
           ) : (

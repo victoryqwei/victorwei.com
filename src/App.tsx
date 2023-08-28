@@ -1,9 +1,11 @@
-import { Box, Center, Heading, VStack } from "@chakra-ui/react";
+import { Box, Center, VStack } from "@chakra-ui/react";
 import "./index.css";
+import About from "./react/About";
+import Contact from "./react/Contact";
 import NavBar from "./react/NavBar";
+import Projects from "./react/Projects";
 import Title from "./react/Title";
 import WorkExperience from "./react/Work";
-import About from "./react/About";
 
 const App: React.FC = () => {
   return (
@@ -19,13 +21,11 @@ const App: React.FC = () => {
 
             <WorkExperience />
 
-            <Heading fontSize="lg" mb="0.5em">
-              Past Projects
-            </Heading>
+            <Projects />
 
-            <Heading fontSize="lg" mb="0.5em">
-              Awards
-            </Heading>
+            <Contact />
+
+            {/* <Footer /> */}
           </VStack>
         </Box>
       </Center>
