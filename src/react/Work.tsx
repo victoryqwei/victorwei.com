@@ -67,7 +67,8 @@ const Tab: React.FC<{ name: string; selected?: boolean; setSelected: React.Dispa
         bg: { base: "transparent", md: "rgba(255, 255, 255, 0.1)" },
         cursor: "pointer",
       }}
-      onClick={() => setSelected(name)}>
+      onClick={() => setSelected(name)}
+      whiteSpace="nowrap">
       {name}
     </Box>
   );
@@ -90,7 +91,8 @@ const TabMobile: React.FC<{ name: string; selected?: boolean; setSelected: React
         borderColor: "white.500",
         cursor: "pointer",
       }}
-      onClick={() => setSelected(name)}>
+      onClick={() => setSelected(name)}
+      whiteSpace="nowrap">
       {name}
     </Box>
   );
@@ -101,14 +103,14 @@ const WorkExperience: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="experience" py="6em" px="2em" h="32em">
+    <Box id="experience" py="6em" px="2em" h="32em" w="100%">
       <Heading fontSize="2xl" mb="1em">
         Work Experience
       </Heading>
 
       {isMobile && (
         <VStack alignItems="flex-start">
-          <HStack gap={0} overflow="scroll">
+          <HStack gap={0} overflow="scroll" maxW="100%">
             {Object.keys(data).map((name, i) => (
               <TabMobile key={i} name={name} selected={selected === name} setSelected={setSelected} />
             ))}
@@ -129,7 +131,7 @@ const WorkExperience: React.FC = () => {
       )}
 
       {!isMobile && (
-        <HStack alignItems="flex-start">
+        <HStack alignItems="flex-start" gap="1em">
           <VStack gap={0}>
             {Object.keys(data).map((name, i) => (
               <Tab key={i} name={name} selected={selected === name} setSelected={setSelected} />
