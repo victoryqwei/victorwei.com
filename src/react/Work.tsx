@@ -12,6 +12,13 @@ interface WorkExperienceData {
 }
 
 const data: WorkExperienceData = {
+  "TD Securities": {
+    title: "Incoming Software Engineering Intern",
+    date: "Sept 2023 - Dec 2023",
+    description: [
+      "Working with the Structured Notes team to maintain and develop internal and public facing web tools, APIs, and workflow processes.",
+    ],
+  },
   "ArenaX Labs": {
     title: "Game Developer Intern",
     date: "Jan 2023 - Apr 2023",
@@ -99,7 +106,7 @@ const TabMobile: React.FC<{ name: string; selected?: boolean; setSelected: React
 };
 
 const WorkExperience: React.FC = () => {
-  const [selected, setSelected] = useState("ArenaX Labs");
+  const [selected, setSelected] = useState("TD Securities");
   const [isMobile] = useMobile();
 
   return (

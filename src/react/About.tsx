@@ -1,4 +1,4 @@
-import { Box, HStack, Heading, Text, Image, VStack, List, ListItem, ListIcon, Center, SimpleGrid } from "@chakra-ui/react";
+import { Box, HStack, Heading, Text, Image, VStack, List, ListItem, ListIcon, Center, SimpleGrid, Link } from "@chakra-ui/react";
 import headshot from "../assets/headshot.jpg";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useMobile } from "../utils/hooks";
@@ -11,14 +11,21 @@ const About: React.FC = () => {
       <Heading fontSize="2xl" mb="1em">
         About Me
       </Heading>
-      <HStack>
+      <HStack alignItems="flex-start">
         <VStack alignItems="flex-start" fontSize="1rem">
           <Text>
-            Hello! My name is Victor and I am currently a third-year Software Engineering student at the University of Waterloo. I love
-            working with software and I have a strong passion for machine learning, game development, and physics simulations.
+            Greetings! I'm Victor, student at the University of Waterloo and a passionate software enthusiast who enjoys crafting diverse
+            software experiences. Outside of classes, I've been diving deep into projects like simulating car physics on web platforms and
+            creating a browser-based voxel engine. I'm particularly drawn to computer vision, seeing its potential from autonomous vehicles
+            to medical applications like cancer detection.
           </Text>
 
-          <Text></Text>
+          <Text>
+            Recently, I've been working on Miniblox, a multiplayer voxel engine that runs in the browser. Feel free to check it out @{" "}
+            <Link color="blue.400" href="https://miniblox.io" target="_blank">
+              miniblox.io
+            </Link>
+          </Text>
 
           <Text>Here's a few technologies I've been working with recently:</Text>
 
