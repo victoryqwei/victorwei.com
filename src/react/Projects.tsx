@@ -1,5 +1,6 @@
 import { Box, HStack, Heading, Image, Link, Text, VStack } from "@chakra-ui/react";
 import miniblox from "../assets/miniblox.png";
+import airflip from "../assets/airflip.png";
 import quickmark from "../assets/quickmark.png";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { useMobile } from "../utils/hooks";
@@ -46,11 +47,21 @@ const data: ProjectData = {
       website: "https://miniblox.io",
     },
   },
+  AirFlip: {
+    image: airflip,
+    description:
+      "A contactless pdf viewer that allows users to flip through pages using face gestures and auditory commands. Great for musicians, workers, people with disabilities, or just lazy people. Winner of Hack the North 2020++.",
+    tools: ["Python", "React", "Tensorflow.js"],
+    links: {
+      github: "https://github.com/victoryqwei/AirFlip",
+      website: "https://airflip.victorwei.com",
+    },
+  },
   QuickMark: {
     image: quickmark,
     description:
       "A web application that automates and streamlines the marking of test responses using computer vision. Wrote a pipeline to automatically crop questions based on their bounding box. Winner of Hack the North 2020.",
-    tools: ["HTML", "Angular", "Flask", "OpenCV"],
+    tools: ["HTML/CSS", "Angular", "Flask", "OpenCV"],
     links: {
       github: "https://github.com/Deus-Group-HTN/quickmark",
       website: "https://quickmark.victorwei.com",
@@ -67,7 +78,7 @@ const Projects: React.FC = () => {
         Featured Projects
       </Heading>
 
-      <VStack gap="1em">
+      <VStack gap="2em">
         {Object.keys(data).map((name, i) => {
           const isOdd = i % 2 === 1;
 

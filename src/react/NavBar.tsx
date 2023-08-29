@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box width="100%" position="fixed" left="0" top="0">
+    <Box width="100%" position="fixed" left="0" top="0" zIndex={2}>
       <SlideFade in={visible} offsetY="-3.8rem">
         <HStack justifyContent="space-between" p="1rem" {...AcrylicBackgroundChakraProps}>
           <Link
