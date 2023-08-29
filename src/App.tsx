@@ -50,9 +50,10 @@ const App: React.FC = () => {
             <FadeInSection>
               <Projects />
             </FadeInSection>
-            <Contact />
 
-            {/* <Footer /> */}
+            <FadeInSection>
+              <Contact />
+            </FadeInSection>
           </VStack>
         </Box>
       </Center>
