@@ -24,9 +24,9 @@ const FadeInSection = (props: { children: React.ReactNode }) => {
     if (domRef.current) observer.observe(domRef.current);
   }, []);
   return (
-    <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
+    <Box className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef} w="100%">
       {props.children}
-    </div>
+    </Box>
   );
 };
 
