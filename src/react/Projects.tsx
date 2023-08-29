@@ -14,15 +14,15 @@ const Projects: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="projects" py="2em" px="2em" h="32em">
+    <Box id="projects" py="2em" px="2em" h="32em" w="100%">
       <Heading fontSize="2xl" mb="1em">
         Featured Projects
       </Heading>
 
       {!isMobile && (
-        <HStack h="20em">
+        <HStack>
           <Image
-            h="100%"
+            w="50%"
             src={miniblox}
             filter="blur(1.5px)"
             transition="filter 0.3s"
@@ -36,9 +36,9 @@ const Projects: React.FC = () => {
             }}
           />
 
-          <VStack zIndex={1} gap="1em" align="flex-end" p="1em">
+          <VStack zIndex={1} gap="1em" align="flex-end" p="1em" w="50%">
             <Heading fontSize="3xl">Miniblox</Heading>
-            <Box p="1em" bgColor="grey" w="120%" borderRadius="3px">
+            <Box p="1em" bgColor="#363636" w="120%" borderRadius="3px">
               <Text>
                 Miniblox is an online multiplayer voxel game that offers a variety of features, including competitive minigames, a wide
                 selection of blocks to build with, challenging parkour levels, and much more!
@@ -47,8 +47,7 @@ const Projects: React.FC = () => {
             <HStack>
               <Text>Typescript</Text>
               <Text>Three.js</Text>
-              <Text>Grafana</Text>
-              <Text>Kubernetes</Text>
+              <Text>Github Actions</Text>
               <Text>Kubernetes</Text>
             </HStack>
             <HStack>
@@ -64,37 +63,21 @@ const Projects: React.FC = () => {
       )}
 
       {isMobile && (
-        <Box h="20em" backgroundImage={`url(${miniblox})`} backgroundSize="cover" backgroundPosition="center" borderRadius="2px">
-          {/* <Image
-            h="100%"
-            src={miniblox}
-            filter="blur(1.5px)"
-            transition="filter 0.3s"
-            _hover={{
-              filter: "none",
-              cursor: "pointer",
-            }}
-            borderRadius="2px"
-            onClick={() => {
-              window.open("https://miniblox.io", "_blank");
-            }}
-          /> */}
-
-          <VStack zIndex={1} gap="1em" align="flex-end" p="1em">
-            <Heading fontSize="3xl">Miniblox</Heading>
-            <Box p="1em" bgColor="grey" w="120%" borderRadius="3px">
-              <Text>
-                Miniblox is an online multiplayer voxel game that offers a variety of features, including competitive minigames, a wide
-                selection of blocks to build with, challenging parkour levels, and much more!
-              </Text>
-            </Box>
-            <HStack>
-              <Text>Typescript</Text>
-              <Text>Three.js</Text>
-              <Text>Grafana</Text>
-              <Text>Kubernetes</Text>
-              <Text>Kubernetes</Text>
-            </HStack>
+        <Box
+          w="100%"
+          className="background-filter"
+          backgroundImage={`url(${miniblox})`}
+          backgroundSize="cover"
+          backgroundPosition="center"
+          borderRadius="3px"
+          backdropFilter="blur(1px)">
+          <VStack zIndex={1} gap="1em" align="flex-start" p="1em" className="u-non-blurred">
+            <Heading fontSize="2xl">Miniblox</Heading>
+            <Text>
+              Miniblox is an online multiplayer voxel game that offers a variety of features, including competitive minigames, a wide
+              selection of blocks to build with, challenging parkour levels, and much more!
+            </Text>
+            <Text>Typescript Three.js Grafana Kubernetes Kubernetes</Text>
             <HStack>
               <Link href="https://github.com/minibloxio" isExternal>
                 <FiGithub size={20} />

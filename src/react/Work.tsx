@@ -116,7 +116,7 @@ const WorkExperience: React.FC = () => {
       </Heading>
 
       {isMobile && (
-        <VStack alignItems="flex-start">
+        <VStack alignItems="flex-start" gap="1em">
           <HStack gap={0} overflow="scroll" maxW="100%">
             {Object.keys(data).map((name, i) => (
               <TabMobile key={i} name={name} selected={selected === name} setSelected={setSelected} />
