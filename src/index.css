@@ -21,7 +21,6 @@ body,
   -webkit-backdrop-filter: blur(3px); /* Use for Safari 9+, Edge 17+ (not a mistake) and iOS Safari 9.2+ */
   backdrop-filter: blur(3px); /* Supported in Chrome 76 */
   background: "rgba(0, 0, 0, .4)";
-  filter: brightness(0.5);
 
   content: "";
   display: block;

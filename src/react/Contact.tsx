@@ -1,6 +1,10 @@
-import { Button, Center, Heading, Link, VStack, Text, Box } from "@chakra-ui/react";
+import { Button, Center, Heading, Link, VStack, Text, Box, HStack } from "@chakra-ui/react";
+import { useMobile } from "../utils/hooks";
+import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
+import SocialIcon from "./components/SocialIcon";
 
 const Contact: React.FC = () => {
+  const [isMobile] = useMobile();
   return (
     <Center id="contact" py="2em" px="2em" h="100vh" w="100%" textAlign="center">
       <VStack gap={0} justifyContent="space-between" h="100%">
@@ -23,9 +27,17 @@ const Contact: React.FC = () => {
             </Button>
           </Link>
         </VStack>
-        <Box>
+        <VStack gap="1em">
+          {isMobile && (
+            <HStack gap="1.5em">
+              <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" />
+              <SocialIcon icon={<FiLinkedin size="1.3em" />} link="https://www.linkedin.com/in/victoryqwei/" />
+              <SocialIcon icon={<FiInstagram size="1.3em" />} link="https://www.instagram.com/victoryqwei/" />
+              <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" />
+            </HStack>
+          )}
           <Text>website built by yours truly | © 2023 Victor Wei</Text>
-        </Box>
+        </VStack>
       </VStack>
     </Center>
   );

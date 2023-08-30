@@ -1,10 +1,11 @@
-import { Box, HStack, Heading, Image, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import airflip from "../assets/airflip.png";
 import miniblox from "../assets/miniblox.png";
 import quickmark from "../assets/quickmark.png";
 import { useMobile } from "../utils/hooks";
 import FadeInSection from "./components/FadeInSection";
+import SocialIcon from "./components/SocialIcon";
 
 interface ProjectData {
   [key: string]: {
@@ -93,18 +94,17 @@ const Projects: React.FC = () => {
                   backgroundSize="cover"
                   backgroundPosition="center"
                   borderRadius="3px"
-                  backdropFilter="blur(1px)">
+                  backdropFilter="blur(1px)"
+                  _after={{
+                    filter: "brightness(0.5)",
+                  }}>
                   <VStack zIndex={1} gap="1em" align="flex-start" p="1em" className="u-non-blurred">
                     <Heading fontSize="2xl">{name}</Heading>
                     <Text>{data[name].description}</Text>
                     <Text>{data[name].tools.join(" ")}</Text>
                     <HStack>
-                      <Link href={data[name].links.github} isExternal>
-                        <FiGithub size={20} />
-                      </Link>
-                      <Link href={data[name].links.website} isExternal>
-                        <FiExternalLink size={20} />
-                      </Link>
+                      <SocialIcon icon={<FiGithub size="1.3em" />} link={data[name].links.github} />
+                      <SocialIcon icon={<FiExternalLink size="1.3em" />} link={data[name].links.website} />
                     </HStack>
                   </VStack>
                 </Box>
@@ -128,13 +128,9 @@ const Projects: React.FC = () => {
                         </Text>
                       ))}
                     </HStack>
-                    <HStack>
-                      <Link href={data[name].links.github} isExternal>
-                        <FiGithub size={20} />
-                      </Link>
-                      <Link href={data[name].links.website} isExternal>
-                        <FiExternalLink size={20} />
-                      </Link>
+                    <HStack gap="1em">
+                      <SocialIcon icon={<FiGithub size="1.3em" />} link={data[name].links.github} />
+                      <SocialIcon icon={<FiExternalLink size="1.3em" />} link={data[name].links.website} />
                     </HStack>
                   </VStack>
 
