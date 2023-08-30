@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 
 // cursor canvas
-
 const mouse = {
   x: 0,
   y: 0,
@@ -42,6 +41,11 @@ const CursorCanvas: React.FC = () => {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
 
     loop(canvas);
   }, [canvasRef]);

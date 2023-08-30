@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
         <Socials />
 
-        <CursorCanvas />
+        {!isMobile && <CursorCanvas />}
 
         <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%" px="2em" mx={isMobile ? "0em" : "5em"}>
           <VStack alignItems="flex-start">
