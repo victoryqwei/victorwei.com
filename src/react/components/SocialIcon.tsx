@@ -1,6 +1,8 @@
 import { Box } from "@chakra-ui/react";
 
-const SocialIcon: React.FC<{ icon: React.ReactNode; link: string }> = ({ icon, link }) => {
+const SocialIcon: React.FC<{ icon: React.ReactNode; link?: string }> = ({ icon, link }) => {
+  if (!link) return null;
+
   return (
     <Box
       pos="relative"

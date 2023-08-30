@@ -43,7 +43,7 @@ const data: ProjectData = {
     image: miniblox,
     description:
       "An multiplayer voxel game playable on the web browser. Offers a variety of features, including competitive minigames, a wide selection of blocks to build with, challenging parkour levels, and much more! Currently accumulated over 14K registered accounts with 10K monthly active players.",
-    tools: ["Typescript", "Three.js", "Grafana", "Github Actions", "Kubernetes"],
+    tools: ["Typescript", "Three.js", "Chakra UI", "Github Actions", "Kubernetes"],
     links: {
       github: "https://github.com/minibloxio",
       website: "https://miniblox.io",
