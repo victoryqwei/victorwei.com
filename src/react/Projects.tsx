@@ -1,7 +1,8 @@
-import { Box, HStack, Heading, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Heading, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import FadeInSection from "./components/FadeInSection";
 import SocialIcon from "./components/SocialIcon";
+import { useState } from "react";
 
 interface ProjectData {
   [key: string]: {
@@ -146,14 +147,18 @@ const data: ProjectData = {
 };
 
 const Projects: React.FC = () => {
+  const [loadMore, setLoadMore] = useState(false);
+
   return (
-    <Box id="projects" py="6em" px="2em" w="100%">
+    <Box id="more_projects" py="6em" px="2em" w="100%">
       <Heading fontSize="3xl" mb="1em">
         More Projects
       </Heading>
 
       <SimpleGrid columns={[1, 2]} gap="1.5em">
         {Object.keys(data).map((name, i) => {
+          if (i > 5 && !loadMore) return null;
+
           return (
             <FadeInSection key={i}>
               <Box
@@ -192,6 +197,33 @@ const Projects: React.FC = () => {
           );
         })}
       </SimpleGrid>
+
+      <Center my="2em">
+        <Button
+          backgroundColor="transparent"
+          border="
+                1px solid white"
+          color="white"
+          p="1em"
+          _hover={{
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+          }}
+          onClick={() => {
+            setLoadMore(!loadMore);
+
+            if (loadMore) {
+              // scroll to #projects
+              const element = document.getElementById("more_projects");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          }}>
+          <HStack gap="0.3em">
+            <Text>{loadMore ? "Show Less" : "Show More"}</Text>
+          </HStack>
+        </Button>
+      </Center>
     </Box>
   );
 };
