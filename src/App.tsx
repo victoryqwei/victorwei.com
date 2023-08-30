@@ -11,9 +11,12 @@ import Socials from "./react/Socials";
 import Projects from "./react/Projects";
 import { useMobile } from "./utils/hooks";
 import CursorCanvas from "./react/CursorCanvas";
+import Toys from "./react/Toys";
+import { useState } from "react";
 
 const App: React.FC = () => {
   const [isMobile] = useMobile();
+  const [powered, setPowered] = useState(false);
 
   return (
     <>
@@ -22,7 +25,9 @@ const App: React.FC = () => {
 
         <Socials />
 
-        {!isMobile && <CursorCanvas />}
+        <Toys powered={powered} setPowered={setPowered} />
+
+        {!isMobile && powered && <CursorCanvas />}
 
         <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%" px="2em" mx={isMobile ? "0em" : "5em"}>
           <VStack alignItems="flex-start">

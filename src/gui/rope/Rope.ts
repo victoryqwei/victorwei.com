@@ -4,7 +4,7 @@ import Node from "./Node";
 class Rope {
   width: number = 5;
   iterations: number = 100;
-  totalNodes: number = 100;
+  totalNodes: number = 20;
   nodeDistance: number = 5;
   nodes: Node[] = [];
 
