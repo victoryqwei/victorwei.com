@@ -1,11 +1,13 @@
-import { Box, Button, Center, HStack, Heading, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
+import interplanetarium from "../assets/projects/interplanetarium.png";
 import FadeInSection from "./components/FadeInSection";
 import SocialIcon from "./components/SocialIcon";
-import { useState } from "react";
 
 interface ProjectData {
   [key: string]: {
+    image?: string;
     description: string;
     tools: string[];
     links: {
@@ -17,6 +19,7 @@ interface ProjectData {
 
 const data: ProjectData = {
   "Interplanetarium 2": {
+    image: interplanetarium,
     description:
       "A multiplayer survival game where a player attempts to survive in space within a little rocket. Shoot down turrets to gain xp and advance to the next stage!",
     tools: ["Javascript", "Node.js", "Socket.io"],
@@ -179,18 +182,38 @@ const Projects: React.FC = () => {
                   } else if (data[name].links.github) {
                     window.open(data[name].links.github, "_blank");
                   }
-                }}>
-                <VStack zIndex={1} gap="1em" align="flex-start" p="1em" justifyContent="space-between" h="100%">
-                  <HStack justifyContent="space-between" w="100%">
-                    <Heading fontSize="2xl">{name}</Heading>
+                }}
+                role={data[name].image ? "group" : undefined}>
+                {data[name].image && (
+                  <Image
+                    position="absolute"
+                    src={interplanetarium}
+                    objectFit="cover"
+                    filter="brightness(0.2) blur(1.5px)"
+                    transition="filter 0.3s"
+                    _groupHover={{ filter: "none" }}
+                    borderRadius="2px"
+                    zIndex={0}
+                  />
+                )}
+
+                <VStack gap="1em" align="flex-start" p="1em" justifyContent="space-between" h="100%">
+                  <HStack justifyContent="space-between" w="100%" zIndex={0}>
+                    <Heading fontSize="2xl" _groupHover={{ opacity: 0 }} transition="0.3s">
+                      {name}
+                    </Heading>
 
                     <HStack gap="0.5em">
                       <SocialIcon icon={<FiGithub size="1.3em" />} link={data[name].links.github} />
                       <SocialIcon icon={<FiExternalLink size="1.3em" />} link={data[name].links.website} />
                     </HStack>
                   </HStack>
-                  <Text>{data[name].description}</Text>
-                  <Text color="whiteAlpha.700">{data[name].tools.join(" ")}</Text>
+                  <Text zIndex={0} _groupHover={{ opacity: 0 }} transition="0.3s">
+                    {data[name].description}
+                  </Text>
+                  <Text color="whiteAlpha.700" zIndex={0} _groupHover={{ opacity: 0 }} transition="0.3s">
+                    {data[name].tools.join(" ")}
+                  </Text>
                 </VStack>
               </Box>
             </FadeInSection>
