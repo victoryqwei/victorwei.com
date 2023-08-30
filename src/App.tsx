@@ -10,6 +10,7 @@ import FadeInSection from "./react/components/FadeInSection";
 import Socials from "./react/Socials";
 import Projects from "./react/Projects";
 import { useMobile } from "./utils/hooks";
+import CursorCanvas from "./react/CursorCanvas";
 
 const App: React.FC = () => {
   const [isMobile] = useMobile();
@@ -20,6 +21,8 @@ const App: React.FC = () => {
         <NavBar />
 
         <Socials />
+
+        <CursorCanvas />
 
         <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%" px="2em" mx={isMobile ? "0em" : "5em"}>
           <VStack alignItems="flex-start">
