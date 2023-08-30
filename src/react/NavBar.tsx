@@ -11,8 +11,8 @@ const NavBar: React.FC = () => {
   const [visible, setVisible] = useState(true);
 
   const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    setVisible(prevScrollPos > currentScrollPos);
+    const currentScrollPos = window.scrollY;
+    setVisible(prevScrollPos > currentScrollPos || window.scrollY < 50);
     setPrevScrollPos(currentScrollPos);
   };
 
