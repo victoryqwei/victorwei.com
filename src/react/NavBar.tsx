@@ -1,9 +1,10 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Box, HStack, Image, Link, Menu, MenuButton, MenuItem, MenuList, SlideFade, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Image, Link, Menu, MenuButton, MenuItem, MenuList, SlideFade, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import vectorLogo from "../assets/vector.png";
 import { AcrylicBackgroundChakraProps } from "../gui/constants";
 import { useMobile } from "../utils/hooks";
+import resume from "../assets/resume.pdf";
 
 const NavBar: React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -64,6 +65,9 @@ const NavBar: React.FC = () => {
                 <MenuItem>
                   <Link href="#contact">Contact</Link>
                 </MenuItem>
+                <MenuItem>
+                  <Link href={resume}>Resume</Link>
+                </MenuItem>
               </MenuList>
             </Menu>
           ) : (
@@ -72,6 +76,21 @@ const NavBar: React.FC = () => {
               <Link href="#experience">Experience</Link>
               <Link href="#projects">Projects</Link>
               <Link href="#contact">Contact</Link>
+
+              <Link href={resume}>
+                <Button
+                  backgroundColor="transparent"
+                  border="
+                1px solid white"
+                  color="white"
+                  _hover={{
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  }}>
+                  <HStack gap="0.3em">
+                    <Text>Resume</Text>
+                  </HStack>
+                </Button>
+              </Link>
             </HStack>
           )}
         </HStack>

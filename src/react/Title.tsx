@@ -15,7 +15,7 @@ const Title: React.FC = () => {
             style={{
               fontSize: "1em",
             }}
-            strings={["a web developer.", "a game developer.", "an ML enthusiast."]}
+            strings={["a student.", "a web developer.", "a game developer.", "an ML enthusiast."]}
             typeSpeed={40}
             backSpeed={50}
             loop
