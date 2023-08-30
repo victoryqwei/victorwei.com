@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
   const [isMobile] = useMobile();
   return (
     <>
-      <Center id="contact" py="10em" px="2em" w="100%" textAlign="center">
+      <Center id="contact" py="10em" w="100%" textAlign="center">
         <VStack gap={0} justifyContent="space-between" h="100%">
           <Box></Box>
 
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
           </VStack>
         </VStack>
       </Center>
-      <VStack gap="1em" py="2em" px="2em">
+      <VStack gap="1em" py="2em">
         {isMobile && (
           <HStack gap="1.5em">
             <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" />

@@ -150,7 +150,7 @@ const Projects: React.FC = () => {
   const [loadMore, setLoadMore] = useState(false);
 
   return (
-    <Box id="more_projects" py="6em" px="2em" w="100%">
+    <Box id="more_projects" py="6em" w="100%">
       <Heading fontSize="3xl" mb="1em">
         More Projects
       </Heading>

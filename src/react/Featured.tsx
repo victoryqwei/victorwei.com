@@ -75,7 +75,7 @@ const Featured: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="projects" py="6em" px="2em" w="100%">
+    <Box id="projects" py="6em" w="100%">
       <Heading fontSize="3xl" mb="1em">
         Featured Projects
       </Heading>

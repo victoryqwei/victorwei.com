@@ -110,7 +110,7 @@ const WorkExperience: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="experience" py="6em" px="2em" h={isMobile ? "40em" : "32em"}>
+    <Box id="experience" py="6em" h={isMobile ? "40em" : "32em"}>
       <Heading fontSize="3xl" mb="1em">
         Work Experience
       </Heading>

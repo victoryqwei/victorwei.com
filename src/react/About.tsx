@@ -7,7 +7,7 @@ const About: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="about" pt="6em" px="2em">
+    <Box id="about" pt="6em">
       <Heading fontSize="3xl" mb="1em">
         About Me
       </Heading>

@@ -9,8 +9,11 @@ import WorkExperience from "./react/Work";
 import FadeInSection from "./react/components/FadeInSection";
 import Socials from "./react/Socials";
 import Projects from "./react/Projects";
+import { useMobile } from "./utils/hooks";
 
 const App: React.FC = () => {
+  const [isMobile] = useMobile();
+
   return (
     <>
       <Center color="rgba(255, 255, 255, 0.87)">
@@ -18,7 +21,7 @@ const App: React.FC = () => {
 
         <Socials />
 
-        <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%">
+        <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%" px="2em" mx={isMobile ? "0em" : "5em"}>
           <VStack alignItems="flex-start">
             <Title />
 
