@@ -1,13 +1,19 @@
 import { Box, Button, Center, HStack, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
-import interplanetarium from "../assets/projects/interplanetarium.png";
 import FadeInSection from "./components/FadeInSection";
 import SocialIcon from "./components/SocialIcon";
+import interplanetarium from "../assets/projects/interplanetarium.png";
+import gymlens from "../assets/projects/gymlens.png";
+import core from "../assets/projects/core.png";
+import knoggin from "../assets/projects/knoggin.png";
+import car3d from "../assets/projects/car3d.png";
+import driftsim from "../assets/projects/driftsim.png";
 
 interface ProjectData {
   [key: string]: {
     image?: string;
+    isWhite?: boolean;
     description: string;
     tools: string[];
     links: {
@@ -19,6 +25,7 @@ interface ProjectData {
 
 const data: ProjectData = {
   "Interplanetarium 2": {
+    isWhite: true,
     image: interplanetarium,
     description:
       "A multiplayer survival game where a player attempts to survive in space within a little rocket. Shoot down turrets to gain xp and advance to the next stage!",
@@ -29,6 +36,7 @@ const data: ProjectData = {
     },
   },
   GymLens: {
+    image: gymlens,
     description: "A virtual gym trainer that uses pose detection to track the number of reps as well as form.",
     tools: ["Javascript", "Angular", "Tensorflow.js"],
     links: {
@@ -37,6 +45,7 @@ const data: ProjectData = {
     },
   },
   Core: {
+    image: core,
     description:
       "A multiplayer game where the main focus is to protect a Core and fight other players. Collect power to upgrade your base to get stronger.",
     tools: ["Javascript", "Node.js", "Socket.io"],
@@ -46,21 +55,24 @@ const data: ProjectData = {
     },
   },
   Knoggin: {
+    image: knoggin,
     description: "A web app with a collection of brain training games to help improve memory and focus.",
     tools: ["Typescript", "React"],
     links: {
       github: "https://github.com/NatHacks-Bird-Brain/knoggin",
     },
   },
-  "Self Driving Car": {
-    description: "A neural evolution of augmenting topologies (NEAT) algorithm that trains a car to drive itself through a track.",
-    tools: ["Javascript", "HTML5 Canvas"],
+  "3D Car Sim": {
+    image: car3d,
+    description: "A 3D car simulator that emulates engine, tire, and suspension physics.",
+    tools: ["Javascript", "Three.js"],
     links: {
-      github: "https://github.com/victoryqwei/car",
-      website: "https://old.victorwei.com/projects/car",
+      github: "https://github.com/victoryqwei/car-3d",
+      website: "https://old.victorwei.com/projects/car-3d",
     },
   },
   "Drift Sim": {
+    image: driftsim,
     description:
       "A 2D car drifting simulator that emulates engine, tire, and suspension physics. Features a basic collision resolution system.",
     tools: ["Javascript", "HTML5 Canvas"],
@@ -98,6 +110,14 @@ const data: ProjectData = {
     tools: ["Javascript", "HTML5 Canvas"],
     links: {
       website: "https://old.victorwei.com/projects/snake",
+    },
+  },
+  "Car AI": {
+    description: "A neural evolution of augmenting topologies (NEAT) algorithm that trains a car to drive itself through a track.",
+    tools: ["Javascript", "HTML5 Canvas"],
+    links: {
+      github: "https://github.com/victoryqwei/car",
+      website: "https://old.victorwei.com/projects/car",
     },
   },
   "Metro Game": {
@@ -187,9 +207,12 @@ const Projects: React.FC = () => {
                 {data[name].image && (
                   <Image
                     position="absolute"
-                    src={interplanetarium}
+                    w="100%"
+                    h="100%"
+                    src={data[name].image}
                     objectFit="cover"
-                    filter="brightness(0.2) blur(1.5px)"
+                    objectPosition="center"
+                    filter="brightness(0.1) blur(1.5px)"
                     transition="filter 0.3s"
                     _groupHover={{ filter: "none" }}
                     borderRadius="2px"
@@ -203,7 +226,7 @@ const Projects: React.FC = () => {
                       {name}
                     </Heading>
 
-                    <HStack gap="0.5em">
+                    <HStack gap="0.5em" _groupHover={{ color: data[name].isWhite ? "white" : "black" }}>
                       <SocialIcon icon={<FiGithub size="1.3em" />} link={data[name].links.github} />
                       <SocialIcon icon={<FiExternalLink size="1.3em" />} link={data[name].links.website} />
                     </HStack>

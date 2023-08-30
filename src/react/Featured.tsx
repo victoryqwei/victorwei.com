@@ -25,7 +25,7 @@ const ProjectImage: React.FC<{ src: string; link: string }> = ({ src, link }) =>
       w="50%"
       src={src}
       filter="blur(1.5px)"
-      transition="filter 0.3s"
+      transition="filter 0.2s"
       _hover={{
         filter: "none",
         cursor: "pointer",
@@ -94,7 +94,7 @@ const Featured: React.FC = () => {
                     src={data[name].image}
                     objectFit="cover"
                     filter="brightness(0.5) blur(1.5px)"
-                    transition="filter 0.3s"
+                    transition="filter 0.2s"
                     _hover={{ filter: "none" }}
                     borderRadius="2px"
                     zIndex={-1}
