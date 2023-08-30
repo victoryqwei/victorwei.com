@@ -36,7 +36,13 @@ const Contact: React.FC = () => {
               <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" />
             </HStack>
           )}
-          <Text>website built by yours truly | © 2023 Victor Wei</Text>
+          <Text>
+            website design inspired by{" "}
+            <Link href="https://v4.brittanychiang.com/" isExternal>
+              brittany
+            </Link>{" "}
+            | © 2023 Victor Wei
+          </Text>
         </VStack>
       </VStack>
     </Center>
