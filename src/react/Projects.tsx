@@ -9,6 +9,7 @@ import core from "../assets/projects/core.png";
 import knoggin from "../assets/projects/knoggin.png";
 import car3d from "../assets/projects/car3d.png";
 import driftsim from "../assets/projects/driftsim.png";
+import { useMobile } from "../utils/hooks";
 
 interface ProjectData {
   [key: string]: {
@@ -171,6 +172,7 @@ const data: ProjectData = {
 
 const Projects: React.FC = () => {
   const [loadMore, setLoadMore] = useState(false);
+  const [isMobile] = useMobile();
 
   return (
     <Box id="more_projects" py="6em" w="100%">
@@ -203,7 +205,7 @@ const Projects: React.FC = () => {
                     window.open(data[name].links.github, "_blank");
                   }
                 }}
-                role={data[name].image ? "group" : undefined}>
+                role={!data[name].image || isMobile ? undefined : "group"}>
                 {data[name].image && (
                   <Image
                     position="absolute"
@@ -212,7 +214,7 @@ const Projects: React.FC = () => {
                     src={data[name].image}
                     objectFit="cover"
                     objectPosition="center"
-                    filter="brightness(0.1) blur(1.5px)"
+                    filter="brightness(0.2) blur(1.5px)"
                     transition="filter 0.3s"
                     _groupHover={{ filter: "none" }}
                     borderRadius="2px"

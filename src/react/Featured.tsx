@@ -93,7 +93,7 @@ const Featured: React.FC = () => {
                     height="100%"
                     src={data[name].image}
                     objectFit="cover"
-                    filter="brightness(0.5) blur(1.5px)"
+                    filter="brightness(0.2) blur(1.5px)"
                     transition="filter 0.2s"
                     _hover={{ filter: "none" }}
                     borderRadius="2px"
