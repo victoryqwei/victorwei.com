@@ -111,7 +111,7 @@ const WorkExperience: React.FC = () => {
 
   return (
     <Box id="experience" py="6em" px="2em" h="32em">
-      <Heading fontSize="2xl" mb="1em">
+      <Heading fontSize="3xl" mb="1em">
         Work Experience
       </Heading>
 

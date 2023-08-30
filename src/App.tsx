@@ -1,5 +1,4 @@
 import { Box, Center, VStack } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
 import "./index.css";
 import About from "./react/About";
 import Contact from "./react/Contact";
@@ -7,28 +6,7 @@ import NavBar from "./react/NavBar";
 import Projects from "./react/Projects";
 import Title from "./react/Title";
 import WorkExperience from "./react/Work";
-
-const FadeInSection = (props: { children: React.ReactNode }) => {
-  const [isVisible, setVisible] = useState(false);
-  const domRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    if (domRef.current) observer.observe(domRef.current);
-  }, []);
-  return (
-    <Box className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef} w="100%">
-      {props.children}
-    </Box>
-  );
-};
+import FadeInSection from "./react/components/FadeInSection";
 
 const App: React.FC = () => {
   return (

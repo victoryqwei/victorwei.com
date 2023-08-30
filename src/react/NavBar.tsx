@@ -51,7 +51,9 @@ const NavBar: React.FC = () => {
           </Link>
           {isMobile ? (
             <Menu>
-              <MenuButton as={HamburgerIcon}></MenuButton>
+              <MenuButton>
+                <HamburgerIcon boxSize="1.5em" />
+              </MenuButton>
               <MenuList color="black">
                 <MenuItem>
                   <Link href="#about">About</Link>
