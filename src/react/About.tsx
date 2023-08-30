@@ -15,9 +15,9 @@ const About: React.FC = () => {
         <VStack alignItems="flex-start" fontSize="1rem">
           <Text>
             Greetings! I'm Victor, student at the University of Waterloo and a passionate software enthusiast who enjoys crafting diverse
-            software experiences. Outside of classes, I've been diving deep into projects like simulating car physics on web platforms and
-            creating a browser-based voxel engine. I'm particularly drawn to computer vision, seeing its potential from autonomous vehicles
-            to medical applications like cancer detection.
+            software experiences. Outside of classes, I've been hacking away on projects such as a car physics simulator and an AI-powered
+            fighter game. I'm particularly drawn to computer vision, seeing its potential in real-world applications from autonomous
+            vehicles to medical applications like cancer detection.
           </Text>
 
           <Text>
