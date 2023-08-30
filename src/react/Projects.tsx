@@ -87,18 +87,19 @@ const Projects: React.FC = () => {
           if (isMobile) {
             return (
               <FadeInSection key={i}>
-                <Box
-                  w="100%"
-                  className="background-filter"
-                  backgroundImage={`url(${data[name].image})`}
-                  backgroundSize="cover"
-                  backgroundPosition="center"
-                  borderRadius="3px"
-                  backdropFilter="blur(1px)"
-                  _after={{
-                    filter: "brightness(0.5)",
-                  }}>
-                  <VStack zIndex={1} gap="1em" align="flex-start" p="1em" className="u-non-blurred">
+                <Box position="relative" w="100%" borderRadius="3px">
+                  <Image
+                    position="absolute"
+                    height="100%"
+                    src={data[name].image}
+                    objectFit="cover"
+                    filter="brightness(0.5) blur(1.5px)"
+                    transition="filter 0.3s"
+                    _hover={{ filter: "none" }}
+                    borderRadius="2px"
+                    zIndex={-1}
+                  />
+                  <VStack zIndex={1} gap="1em" align="flex-start" p="1em">
                     <Heading fontSize="2xl">{name}</Heading>
                     <Text>{data[name].description}</Text>
                     <Text>{data[name].tools.join(" ")}</Text>
