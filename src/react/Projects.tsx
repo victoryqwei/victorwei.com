@@ -69,7 +69,7 @@ const data: ProjectData = {
     tools: ["Javascript", "Three.js"],
     links: {
       github: "https://github.com/victoryqwei/car-3d",
-      website: "https://old.victorwei.com/projects/car-3d",
+      website: "https://old.victorwei.com/featured/car-3d",
     },
   },
   "Drift Sim": {
