@@ -7,6 +7,7 @@ class Rope implements ICursor {
   iterations: number = 100;
   totalNodes: number = 30;
   nodeDistance: number = 5;
+
   nodes: Node[] = [];
 
   constructor() {
@@ -18,6 +19,36 @@ class Rope implements ICursor {
       pos.y -= nodeDistance;
       pos.x += Math.random();
     }
+  }
+
+  setNodes(length: number) {
+    const { nodes, nodeDistance } = this;
+
+    nodes.length = length;
+
+    const pos = new Vector(window.innerHeight / 2, window.innerHeight / 2);
+    for (let i = 0; i < length; i++) {
+      nodes[i] = new Node(pos);
+      pos.y -= nodeDistance;
+      pos.x += Math.random();
+    }
+  }
+
+  setNodeDistance(distance: number) {
+    const { nodes, totalNodes } = this;
+
+    this.nodeDistance = distance;
+
+    const pos = new Vector(window.innerHeight / 2, window.innerHeight / 2);
+    for (let i = 0; i < totalNodes; i++) {
+      nodes[i] = new Node(pos);
+      pos.y -= distance;
+      pos.x += Math.random();
+    }
+  }
+
+  setIterations(iterations: number) {
+    this.iterations = iterations;
   }
 
   update(dt: number, mouse: Vector) {

@@ -43,9 +43,20 @@ class Node {
 class Force implements ICursor {
   nodes: Node[] = [];
 
+  nodeCount = 100;
+
   constructor() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < this.nodeCount; i++) {
       this.nodes.push(new Node());
+    }
+  }
+
+  setNodeCount(count: number) {
+    this.nodeCount = count;
+    this.nodes.length = count;
+
+    for (let i = 0; i < this.nodeCount; i++) {
+      this.nodes[i] = new Node();
     }
   }
 

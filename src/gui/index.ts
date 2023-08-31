@@ -11,9 +11,21 @@ class Toys {
   toys = new Map<string, ICursor>();
   selectedToy: string = "rope";
 
+  rope = new Rope();
+  force = new Force();
+
   constructor() {
-    this.toys.set("rope", new Rope());
-    this.toys.set("force", new Force());
+    this.toys.set("rope", this.rope);
+    this.toys.set("force", this.force);
+  }
+
+  setToy(toy: string) {
+    if (!this.toys.has(toy)) return;
+    this.selectedToy = toy;
+  }
+
+  getToy(toy: string) {
+    return this.toys.get(toy);
   }
 
   start(canvas: HTMLCanvasElement) {

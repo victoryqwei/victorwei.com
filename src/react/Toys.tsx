@@ -10,13 +10,92 @@ import {
   DrawerOverlay,
   FormLabel,
   Select,
+  Slider,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
   Tooltip,
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { FiPower, FiSettings } from "react-icons/fi";
-import { useMobile } from "../utils/hooks";
 import toys from "../gui";
+import { useMobile } from "../utils/hooks";
+
+const ToySettings: React.FC<{ toy: string }> = ({ toy }) => {
+  if (toy === "rope") {
+    return (
+      <VStack alignItems="flex-start">
+        <FormLabel>Rope Length</FormLabel>
+        <Slider
+          defaultValue={toys.rope.totalNodes}
+          min={5}
+          max={100}
+          step={1}
+          onChange={(value) => {
+            toys.rope.setNodes(value);
+          }}>
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <FormLabel>Node Length</FormLabel>
+        <Slider
+          defaultValue={toys.rope.nodeDistance}
+          min={1}
+          max={20}
+          step={1}
+          onChange={(value) => {
+            toys.rope.setNodeDistance(value);
+          }}>
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <FormLabel>Rope Elasticity</FormLabel>
+        <Slider
+          defaultValue={toys.rope.iterations}
+          min={1}
+          max={1000}
+          step={1}
+          onChange={(value) => {
+            toys.rope.setIterations(value);
+          }}>
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+      </VStack>
+    );
+  } else if (toy === "force") {
+    return (
+      <>
+        <FormLabel>Node Count</FormLabel>
+        <Slider
+          defaultValue={toys.force.nodeCount}
+          min={1}
+          max={1000}
+          step={1}
+          onChange={(value) => {
+            toys.force.setNodeCount(value);
+          }}>
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+      </>
+    );
+  } else {
+    return null;
+  }
+};
 
 const Toys: React.FC<{
   powered: boolean;
@@ -24,6 +103,7 @@ const Toys: React.FC<{
 }> = ({ powered, setPowered }) => {
   const [isMobile] = useMobile();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [toy, setToy] = useState<string>("rope");
 
   if (isMobile) return null;
 
@@ -39,17 +119,18 @@ const Toys: React.FC<{
             <FormLabel>Toy</FormLabel>
             <Select
               onChange={(e) => {
+                setToy(e.target.value as string);
                 toys.selectedToy = e.target.value as string;
-              }}>
+              }}
+              mb="1em">
               <option value="rope">Rope</option>
               <option value="force">Gravity</option>
             </Select>
+
+            <ToySettings toy={toy} />
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose} color="white">
-              Cancel
-            </Button>
             <Button colorScheme="green" onClick={onClose}>
               Done
             </Button>
