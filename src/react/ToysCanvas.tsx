@@ -9,10 +9,22 @@ const ToysCanvas: React.FC = () => {
     toys.mouse.y = event.clientY;
   };
 
+  const mouseDownHandler = () => {
+    toys.mouseDown = true;
+  };
+
+  const mouseUpHandler = () => {
+    toys.mouseDown = false;
+  };
+
   useEffect(() => {
     window.addEventListener("mousemove", mouseMoveHandler);
+    window.addEventListener("mousedown", mouseDownHandler);
+    window.addEventListener("mouseup", mouseUpHandler);
     return () => {
       window.removeEventListener("mousemove", mouseMoveHandler);
+      window.removeEventListener("mousedown", mouseDownHandler);
+      window.removeEventListener("mouseup", mouseUpHandler);
     };
   }, []);
 

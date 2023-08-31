@@ -1,22 +1,26 @@
 import Vector from "./Vector";
 import Force from "./force";
 import Rope from "./rope/Rope";
-import ICursor from "./ICursor";
+import IToy from "./IToy";
+import Life from "./life";
 
 class Toys {
   mouse = new Vector();
+  mouseDown = false;
   animationId: number | undefined = 0;
   then: number = performance.now();
 
-  toys = new Map<string, ICursor>();
+  toys = new Map<string, IToy>();
   selectedToy: string = "rope";
 
   rope = new Rope();
   force = new Force();
+  life = new Life();
 
   constructor() {
     this.toys.set("rope", this.rope);
     this.toys.set("force", this.force);
+    this.toys.set("life", this.life);
   }
 
   setToy(toy: string) {
@@ -49,7 +53,7 @@ class Toys {
 
     const toy = this.toys.get(this.selectedToy);
     if (toy) {
-      toy.update(dt / 1000, this.mouse);
+      toy.update(dt / 1000, this.mouse, this.mouseDown);
       toy.draw(ctx);
     }
 

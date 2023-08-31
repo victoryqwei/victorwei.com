@@ -1,8 +1,8 @@
-import ICursor from "../ICursor";
+import IToy from "../IToy";
 import Vector from "../Vector";
 import Node from "./Node";
 
-class Rope implements ICursor {
+class Rope implements IToy {
   width: number = 5;
   iterations: number = 100;
   totalNodes: number = 30;

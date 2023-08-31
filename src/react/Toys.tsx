@@ -46,8 +46,11 @@ const Toys: React.FC<{
                 toys.selectedToy = e.target.value as string;
               }}
               mb="1em">
-              <option value="rope">Rope</option>
-              <option value="force">Gravity</option>
+              {Array.from(toys.toys.keys()).map((toy) => (
+                <option key={toy} value={toy}>
+                  {toy}
+                </option>
+              ))}
             </Select>
 
             <ToySettings toy={toy} />

@@ -1,4 +1,4 @@
-import ICursor from "../ICursor";
+import IToy from "../IToy";
 import Vector from "../Vector";
 
 class Node {
@@ -40,7 +40,7 @@ class Node {
   }
 }
 
-class Force implements ICursor {
+class Force implements IToy {
   nodes: Node[] = [];
 
   nodeCount = 100;
