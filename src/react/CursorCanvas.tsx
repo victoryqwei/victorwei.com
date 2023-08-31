@@ -1,45 +1,14 @@
 import { useEffect, useRef } from "react";
-import Vector from "../gui/Vector";
-import Rope from "../gui/rope/Rope";
+import Cursor from "../gui";
 
-// cursor canvas
-const mouse = new Vector();
-const rope = new Rope();
-let animationId: number | undefined = 0;
-
-let then = performance.now();
-
-function loop(canvas: HTMLCanvasElement) {
-  animationId = undefined;
-  const ctx = canvas.getContext("2d")!;
-  let dt = 0;
-  const now = performance.now();
-  dt = now - then;
-
-  then = now;
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  rope.update(dt / 1000, mouse);
-  rope.draw(ctx);
-
-  start(canvas);
-}
-
-function start(canvas: HTMLCanvasElement) {
-  if (!animationId) {
-    animationId = window.requestAnimationFrame(() => {
-      loop(canvas);
-    });
-  }
-}
+const cursor = new Cursor();
 
 const CursorCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const mouseMoveHandler = (event: MouseEvent) => {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
+    cursor.mouse.x = event.clientX;
+    cursor.mouse.y = event.clientY;
   };
 
   useEffect(() => {
@@ -52,7 +21,7 @@ const CursorCanvas: React.FC = () => {
   // init cursor loop
 
   useEffect(() => {
-    cancelAnimationFrame(animationId!);
+    cancelAnimationFrame(cursor.animationId!);
     if (canvasRef.current == null) return;
 
     const canvas = canvasRef.current;
@@ -65,12 +34,12 @@ const CursorCanvas: React.FC = () => {
       canvas.height = window.innerHeight;
     });
 
-    animationId = requestAnimationFrame(() => {
-      loop(canvas);
+    cursor.animationId = requestAnimationFrame(() => {
+      cursor.loop(canvas);
     });
 
     return () => {
-      cancelAnimationFrame(animationId!);
+      cancelAnimationFrame(cursor.animationId!);
     };
   }, [canvasRef]);
 

@@ -15,14 +15,6 @@ class Node {
 
     this.prevPos = old;
   }
-
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    ctx.arc(this.pos.x, this.pos.y, 5, 0, 2 * Math.PI, false);
-    ctx.fillStyle = "white";
-    ctx.fill();
-    ctx.closePath();
-  }
 }
 
 export default Node;
