@@ -4,7 +4,7 @@ import Typed from "react-typed";
 
 const Title: React.FC = () => {
   return (
-    <Center h="100vh" w="100%" textAlign="center">
+    <Center h="100vh" w="100%" textAlign="center" userSelect="none">
       <VStack>
         <Heading fontSize="5xl" mb="0.5em" mt="2em">
           Hey there, I'm Victor.

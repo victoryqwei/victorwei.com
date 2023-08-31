@@ -39,7 +39,7 @@ const Toys: React.FC<{
           <DrawerHeader>Settings</DrawerHeader>
 
           <DrawerBody>
-            <FormLabel>Toy</FormLabel>
+            <FormLabel>Select a Toy</FormLabel>
             <Select
               onChange={(e) => {
                 setToy(e.target.value as string);
@@ -65,7 +65,7 @@ const Toys: React.FC<{
         </DrawerContent>
       </Drawer>
 
-      <VStack position="fixed" right="2em" bottom="2em">
+      <VStack position="fixed" right="2em" bottom="2em" zIndex={4}>
         {powered && (
           <Tooltip label="Toy settings" closeOnClick={false} placement="left">
             <Box

@@ -77,7 +77,6 @@ class Life implements IToy {
   }
 
   clearBoard() {
-    console.log("clear");
     this.board = [];
     this.init();
   }
@@ -130,6 +129,19 @@ class Life implements IToy {
     this.nextGeneration();
 
     if (mouseDown) this.addMouse(mouse);
+  }
+
+  setRuleset(index: number) {
+    this.ruleString = rules[index];
+
+    this.birthRuleString = this.ruleString.substr(this.ruleString.indexOf("/") + 1, this.ruleString.length);
+    this.survivalRuleString = this.ruleString.substr(0, this.ruleString.indexOf("/"));
+    if ((this.ruleString.match(new RegExp("/", "g")) || []).length > 1) {
+      this.birthRuleString = this.birthRuleString.substr(0, this.birthRuleString.indexOf("/"));
+      this.death = true;
+    }
+
+    this.clearBoard();
   }
 }
 

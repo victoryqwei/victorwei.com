@@ -38,7 +38,7 @@ const data: ProjectData = {
   },
   GymLens: {
     image: gymlens,
-    description: "A virtual gym trainer that uses pose detection to track the number of reps as well as form.",
+    description: "A virtual gym trainer that uses pose detection to track repetitions and provide feedback on proper form.",
     tools: ["Javascript", "Angular", "Tensorflow.js"],
     links: {
       github: "https://github.com/victoryqwei/GymLens",
@@ -74,8 +74,7 @@ const data: ProjectData = {
   },
   "Drift Sim": {
     image: driftsim,
-    description:
-      "A 2D car drifting simulator that emulates engine, tire, and suspension physics. Features a basic collision resolution system.",
+    description: "A 2D car drifting simulator which features a basic collision resolution system.",
     tools: ["Javascript", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/car-sim",
