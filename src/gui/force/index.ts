@@ -1,11 +1,12 @@
+import ICursor from "../ICursor";
 import Vector from "../Vector";
 
-class Mover {
+class Node {
   pos = new Vector(Math.floor(Math.random() * window.innerWidth), Math.floor(Math.random() * window.innerHeight));
   velocity = new Vector();
   acceleration = new Vector();
 
-  update(mouse: Vector) {
+  update(dt: number, mouse: Vector) {
     const dir = mouse.copy();
     dir.sub(this.pos);
 
@@ -13,6 +14,7 @@ class Mover {
     dir.div(2);
 
     this.acceleration = dir;
+    this.acceleration.mult(dt * 100);
 
     this.velocity.add(this.acceleration);
     this.velocity.limit(10);
@@ -22,10 +24,10 @@ class Mover {
 
   checkEdges() {
     if (this.pos.x > window.innerWidth || this.pos.x < 0) {
-      this.velocity.x = this.velocity.x * -1;
+      this.velocity.x = -this.velocity.x;
     }
     if (this.pos.y > window.innerHeight || this.pos.y < 0) {
-      this.velocity.y = this.velocity.y * -1;
+      this.velocity.y = -this.velocity.y;
     }
   }
 
@@ -38,10 +40,27 @@ class Mover {
   }
 }
 
-const movers = [];
+class Force implements ICursor {
+  nodes: Node[] = [];
 
-for (let i = 0; i < 500; i++) {
-  movers.push(new Mover());
+  constructor() {
+    for (let i = 0; i < 50; i++) {
+      this.nodes.push(new Node());
+    }
+  }
+
+  update(dt: number, mouse: Vector) {
+    this.nodes.forEach((node) => {
+      node.update(dt, mouse);
+      node.checkEdges();
+    });
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    this.nodes.forEach((node) => {
+      node.display(ctx);
+    });
+  }
 }
 
-export default Mover;
+export default Force;

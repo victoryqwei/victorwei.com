@@ -10,7 +10,7 @@ import FadeInSection from "./react/components/FadeInSection";
 import Socials from "./react/Socials";
 import Projects from "./react/Projects";
 import { useMobile } from "./utils/hooks";
-import CursorCanvas from "./react/CursorCanvas";
+import ToysCanvas from "./react/ToysCanvas";
 import Toys from "./react/Toys";
 import { useState } from "react";
 
@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
         <Toys powered={powered} setPowered={setPowered} />
 
-        {!isMobile && powered && <CursorCanvas />}
+        {!isMobile && powered && <ToysCanvas />}
 
         <Box textAlign="left" lineHeight="1.5" maxW="850px" w="100%" px="2em" mx={isMobile ? "0em" : "5em"}>
           <VStack alignItems="flex-start">

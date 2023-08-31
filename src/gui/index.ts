@@ -1,15 +1,20 @@
 import Vector from "./Vector";
+import Force from "./force";
 import Rope from "./rope/Rope";
+import ICursor from "./ICursor";
 
-// cursor canvas
-const rope = new Rope();
-
-class Cursor {
+class Toys {
   mouse = new Vector();
   animationId: number | undefined = 0;
   then: number = performance.now();
 
-  constructor() {}
+  toys = new Map<string, ICursor>();
+  selectedToy: string = "rope";
+
+  constructor() {
+    this.toys.set("rope", new Rope());
+    this.toys.set("force", new Force());
+  }
 
   start(canvas: HTMLCanvasElement) {
     if (!this.animationId) {
@@ -30,11 +35,14 @@ class Cursor {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    rope.update(dt / 1000, this.mouse);
-    rope.draw(ctx);
+    const toy = this.toys.get(this.selectedToy);
+    if (toy) {
+      toy.update(dt / 1000, this.mouse);
+      toy.draw(ctx);
+    }
 
     this.start(canvas);
   }
 }
 
-export default Cursor;
+export default Toys;

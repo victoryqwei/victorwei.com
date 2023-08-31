@@ -1,7 +1,8 @@
+import ICursor from "../ICursor";
 import Vector from "../Vector";
 import Node from "./Node";
 
-class Rope {
+class Rope implements ICursor {
   width: number = 5;
   iterations: number = 100;
   totalNodes: number = 20;
