@@ -5,7 +5,7 @@ import Node from "./Node";
 class Rope implements ICursor {
   width: number = 5;
   iterations: number = 100;
-  totalNodes: number = 20;
+  totalNodes: number = 30;
   nodeDistance: number = 5;
   nodes: Node[] = [];
 

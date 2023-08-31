@@ -68,7 +68,9 @@ const NavBar: React.FC = () => {
                   <Link href="#contact">Contact</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link href={resume}>Resume</Link>
+                  <Link href={resume} target="_blank">
+                    Resume
+                  </Link>
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -79,7 +81,7 @@ const NavBar: React.FC = () => {
               <Link href="#projects">Projects</Link>
               <Link href="#contact">Contact</Link>
 
-              <Link href={resume}>
+              <Link href={resume} target="_blank">
                 <Button
                   backgroundColor="transparent"
                   border="

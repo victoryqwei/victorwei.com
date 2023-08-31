@@ -33,8 +33,8 @@ class Node {
 
   display(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
-    ctx.arc(this.pos.x, this.pos.y, 5, 0, 2 * Math.PI, false);
-    ctx.fillStyle = "white";
+    ctx.arc(this.pos.x, this.pos.y, 3, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     ctx.fill();
     ctx.closePath();
   }
@@ -44,7 +44,7 @@ class Force implements ICursor {
   nodes: Node[] = [];
 
   constructor() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 100; i++) {
       this.nodes.push(new Node());
     }
   }

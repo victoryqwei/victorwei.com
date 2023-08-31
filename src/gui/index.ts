@@ -45,4 +45,6 @@ class Toys {
   }
 }
 
-export default Toys;
+const toys = new Toys();
+
+export default toys;

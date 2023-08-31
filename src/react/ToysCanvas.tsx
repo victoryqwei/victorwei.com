@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
-import Toys from "../gui";
-
-const toys = new Toys();
+import toys from "../gui";
 
 const ToysCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
