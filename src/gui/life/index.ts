@@ -46,6 +46,7 @@ class Life implements IToy {
     }
 
     this.init();
+    this.addMouse(new Vector(Math.random() * window.innerWidth, Math.random() * window.innerHeight));
   }
 
   init() {
@@ -73,8 +74,12 @@ class Life implements IToy {
         }
       }
     }
+  }
 
-    this.addMouse(new Vector(Math.random() * window.innerWidth, Math.random() * window.innerHeight));
+  clearBoard() {
+    console.log("clear");
+    this.board = [];
+    this.init();
   }
 
   draw(ctx: CanvasRenderingContext2D) {

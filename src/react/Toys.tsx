@@ -45,7 +45,8 @@ const Toys: React.FC<{
                 setToy(e.target.value as string);
                 toys.selectedToy = e.target.value as string;
               }}
-              mb="1em">
+              mb="1em"
+              defaultValue={toy}>
               {Array.from(toys.toys.keys()).map((toy) => (
                 <option key={toy} value={toy}>
                   {toy}

@@ -1,4 +1,4 @@
-import { FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack, VStack } from "@chakra-ui/react";
+import { Button, FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack, VStack } from "@chakra-ui/react";
 import toys from "../gui";
 
 const ToySettings: React.FC<{ toy: string }> = ({ toy }) => {
@@ -68,6 +68,20 @@ const ToySettings: React.FC<{ toy: string }> = ({ toy }) => {
           </SliderTrack>
           <SliderThumb />
         </Slider>
+      </>
+    );
+  } else if (toy === "life") {
+    return (
+      <>
+        <FormLabel>Node Count</FormLabel>
+
+        <Button
+          colorScheme="red"
+          onClick={() => {
+            toys.life.clearBoard();
+          }}>
+          Clear Board
+        </Button>
       </>
     );
   } else {
