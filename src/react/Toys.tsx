@@ -15,7 +15,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { FiPower, FiSettings } from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
+import { MdOutlineToys } from "react-icons/md";
+
 import toys from "../gui";
 import { useMobile } from "../utils/hooks";
 import ToySettings from "./ToySettings";
@@ -89,9 +91,11 @@ const Toys: React.FC<{
             _hover={{
               transform: "scale(1.2)",
               cursor: "pointer",
+              animation: "none",
             }}
-            transition="transform 0.2s">
-            <FiPower size="1.3em" color={powered ? "rgba(255, 255, 255, 0.87)" : "rgba(255, 255, 255, 0.3)"} />
+            transition="transform 0.2s"
+            animation={powered ? "none" : "changeSize 2s infinite"}>
+            <MdOutlineToys size="1.6em" color={powered ? "rgba(255, 255, 255, 0.87)" : "rgba(255, 255, 255, 0.3)"} />
           </Box>
         </Tooltip>
       </VStack>

@@ -26,3 +26,18 @@ body,
   height: 100vh;
   pointer-events: none;
 }
+
+/* Font size transition effect */
+@keyframes changeSize {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
