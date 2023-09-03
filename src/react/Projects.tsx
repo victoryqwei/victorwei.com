@@ -1,15 +1,14 @@
 import { Box, Button, Center, HStack, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
-import FadeInSection from "./components/FadeInSection";
-import SocialIcon from "./components/SocialIcon";
-import interplanetarium from "../assets/projects/interplanetarium.png";
-import gymlens from "../assets/projects/gymlens.png";
-import core from "../assets/projects/core.png";
-import knoggin from "../assets/projects/knoggin.png";
 import car3d from "../assets/projects/car3d.png";
+import core from "../assets/projects/core.png";
 import driftsim from "../assets/projects/driftsim.png";
+import gymlens from "../assets/projects/gymlens.png";
+import interplanetarium from "../assets/projects/interplanetarium.png";
+import knoggin from "../assets/projects/knoggin.png";
 import { useMobile } from "../utils/hooks";
+import FadeInSection from "./components/FadeInSection";
+import SocialStack from "./components/SocialStack";
 
 interface ProjectData {
   [key: string]: {
@@ -19,6 +18,7 @@ interface ProjectData {
     tools: string[];
     links: {
       github?: string;
+      devpost?: string;
       website?: string;
     };
   };
@@ -42,6 +42,7 @@ const data: ProjectData = {
     tools: ["Javascript", "Angular", "Tensorflow.js"],
     links: {
       github: "https://github.com/victoryqwei/GymLens",
+      devpost: "https://devpost.com/software/gymlens-4qkl8y",
       website: "https://gymlens.victorwei.com",
     },
   },
@@ -61,6 +62,7 @@ const data: ProjectData = {
     tools: ["Typescript", "React"],
     links: {
       github: "https://github.com/NatHacks-Bird-Brain/knoggin",
+      devpost: "https://devpost.com/software/knoggin",
     },
   },
   "3D Car Sim": {
@@ -227,10 +229,7 @@ const Projects: React.FC = () => {
                       {name}
                     </Heading>
 
-                    <HStack gap="0.5em" _groupHover={{ color: data[name].isWhite ? "white" : "black" }}>
-                      <SocialIcon icon={<FiGithub size="1.3em" />} link={data[name].links.github} />
-                      <SocialIcon icon={<FiExternalLink size="1.3em" />} link={data[name].links.website} />
-                    </HStack>
+                    <SocialStack isWhite={data[name].isWhite} links={data[name].links} />
                   </HStack>
                   <Text zIndex={0} _groupHover={{ opacity: 0 }} transition="0.3s">
                     {data[name].description}
