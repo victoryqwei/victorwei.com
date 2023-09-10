@@ -13,10 +13,12 @@ interface WorkExperienceData {
 
 const data: WorkExperienceData = {
   "TD Securities": {
-    title: "Incoming Software Engineering Intern",
+    title: "Software Engineering Intern",
     date: "Sept 2023 - Dec 2023",
     description: [
-      "Working with the Structured Notes team to maintain and develop internal and public facing web tools, APIs, and workflow processes.",
+      "Efficiently manage both internal and public-facing web tools, APIs, and workflow processes constructed using React and Flask, which play a pivotal role in product lifecycle tracking across diverse data sources.",
+      "Maintain and oversee deal pricing, management, and market intelligence infrastructure within MongoDB and SQL databases, placing emphasis on timely product delivery.",
+      "Apply scalable automation with Rundeck to generate offering documents and marketing materials with 99% accuracy",
     ],
   },
   "ArenaX Labs": {
@@ -49,7 +51,7 @@ const data: WorkExperienceData = {
     ],
   },
   "Mitra Biotechnologies": {
-    title: "Software Engineering Intern",
+    title: "Machine Learning Intern",
     date: "Jan 2021 - Apr 2021",
     description: [
       "Developed and optimized a convolutional neural network using Tensorflow/Keras to predict potential heart diseases in patients, reducing time-to-intervention for a cardiovascular case from 30 to 2 minutes.",
