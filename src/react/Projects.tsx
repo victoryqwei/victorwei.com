@@ -199,13 +199,13 @@ const Projects: React.FC = () => {
                   cursor: "pointer",
                 }}
                 transition="0.3s"
-                onClick={() => {
-                  if (data[name].links.website) {
-                    window.open(data[name].links.website, "_blank");
-                  } else if (data[name].links.github) {
-                    window.open(data[name].links.github, "_blank");
-                  }
-                }}
+                // onClick={(e) => {
+                //   if (data[name].links.website) {
+                //     window.open(data[name].links.website, "_blank");
+                //   } else if (data[name].links.github) {
+                //     window.open(data[name].links.github, "_blank");
+                //   }
+                // }}
                 role={!data[name].image || isMobile ? undefined : "group"}>
                 {data[name].image && (
                   <Image
