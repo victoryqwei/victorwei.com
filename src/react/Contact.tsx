@@ -40,11 +40,12 @@ const Contact: React.FC = () => {
           </HStack>
         )}
         <Text>
-          website design inspired by{" "}
+          {/* website design inspired by{" "}
           <Link href="https://v4.brittanychiang.com/" isExternal>
             brittany
           </Link>{" "}
-          | © 2023 Victor Wei
+          |  */}
+          © 2023 Victor Wei
         </Text>
       </VStack>
     </>
