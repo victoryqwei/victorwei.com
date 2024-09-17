@@ -12,6 +12,16 @@ interface WorkExperienceData {
 }
 
 const data: WorkExperienceData = {
+  Fleet: {
+    title: "Software Engineering Intern",
+    date: "May 2024 - Aug 2024",
+    description: [
+      "Revamped user onboarding with React and Google OAuth for passwordless signups, boosting daily sign-up rates by 22%.",
+      "Improved billing accuracy and reduced manual payment errors by integrating Stripe to automate invoicing within Django.",
+      "Enhanced communication for program cancellations by delivering 500+ daily notifications via Segment and SendGrid.",
+      "Built a CI/CD pipeline with GitHub Actions to streamline client releases to S3 and Cloudfront for efficient deployment.",
+    ],
+  },
   "TD Securities": {
     title: "Software Engineering Intern",
     date: "Sept 2023 - Dec 2023",
@@ -21,6 +31,16 @@ const data: WorkExperienceData = {
       "Apply scalable automation with Rundeck to generate offering documents and marketing materials with 99% accuracy",
     ],
   },
+  Miniblox: {
+    title: "Co-Founder",
+    date: "Jan 2022 - Aug 2023",
+    description: [
+      "Launched a multiplayer voxel game written in Typescript using Three.js/Socket.io, currently garnering over 1.1 million monthly active users.",
+      "Developed a streamlined CI/CD pipeline with Github Actions to build and release to S3, which is served on Cloudfront.",
+      "Built a highly-scalable distributed infrastructure system using ArgoCD to auto-deploy Helm charts in DigitalOcean K8s.",
+      "Boosted revenue by 300% by integrating in-game micro-transactions and video ad monetization through Stripe and Adsense.",
+    ],
+  },
   "ArenaX Labs": {
     title: "Game Developer Intern",
     date: "Jan 2023 - Apr 2023",
@@ -28,16 +48,6 @@ const data: WorkExperienceData = {
       "Optimized player model performance in an AI-powered platform fighter game, resulting in a 20% fps improvement.",
       "Fine-tuned the learning rate of the in-game Bayesian neural network by isolating regularization lambdas, improving the training efficiency for movement and action outputs.",
       "Refactored the codebase from Javascript to Typescript, enabling a smoother workflow and higher code quality.",
-    ],
-  },
-  Miniblox: {
-    title: "Co-Founder",
-    date: "Jan 2022 - Apr 2022",
-    description: [
-      "Launched a multiplayer voxel game written in Typescript using Three.js/Socket.io, currently garnering over 10K MAUs.",
-      "Developed a streamlined CI/CD pipeline with Github Actions to build and release to S3, which is served on Cloudfront.",
-      "Built a highly-scalable distributed infrastructure system using ArgoCD to auto-deploy Helm charts in DigitalOcean K8s.",
-      "Achieved 20K ARR by integrating in-game micro-transactions and video ad monetization through Stripe and Adsense.",
     ],
   },
   Voiceflow: {
@@ -50,14 +60,14 @@ const data: WorkExperienceData = {
       "Updated data types and performed database operations using SQL queries to integrate new features and improvements.",
     ],
   },
-  "Mitra Biotechnologies": {
-    title: "Machine Learning Intern",
-    date: "Jan 2021 - Apr 2021",
-    description: [
-      "Developed and optimized a convolutional neural network using Tensorflow/Keras to predict potential heart diseases in patients, reducing time-to-intervention for a cardiovascular case from 30 to 2 minutes.",
-      "Researched and implemented the algorithm within a Doctor-to-Patient app using React Native to seamlessly allow doctors and patients to track their progress.",
-    ],
-  },
+  // "Mitra Biotechnologies": {
+  //   title: "Machine Learning Intern",
+  //   date: "Jan 2021 - Apr 2021",
+  //   description: [
+  //     "Developed and optimized a convolutional neural network using Tensorflow/Keras to predict potential heart diseases in patients, reducing time-to-intervention for a cardiovascular case from 30 to 2 minutes.",
+  //     "Researched and implemented the algorithm within a Doctor-to-Patient app using React Native to seamlessly allow doctors and patients to track their progress.",
+  //   ],
+  // },
 };
 
 const Tab: React.FC<{ name: string; selected?: boolean; setSelected: React.Dispatch<React.SetStateAction<string>> }> = ({
@@ -108,7 +118,7 @@ const TabMobile: React.FC<{ name: string; selected?: boolean; setSelected: React
 };
 
 const WorkExperience: React.FC = () => {
-  const [selected, setSelected] = useState("TD Securities");
+  const [selected, setSelected] = useState("Fleet");
   const [isMobile] = useMobile();
 
   return (

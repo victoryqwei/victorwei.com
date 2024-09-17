@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
             brittany
           </Link>{" "}
           |  */}
-          © 2023 Victor Wei
+          © 2024 Victor Wei
         </Text>
       </VStack>
     </>
