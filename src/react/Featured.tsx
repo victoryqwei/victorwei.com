@@ -41,8 +41,25 @@ const ProjectImage: React.FC<{ src: string; link: string }> = ({ src, link }) =>
 const data: ProjectData = {
   Miniblox: {
     image: miniblox,
-    description:
-      "A multiplayer voxel game playable on the web browser. Offers a variety of features, including competitive minigames, a wide selection of blocks to build with, challenging parkour levels, and much more! Currently attracting over 1.1 million monthly active users.",
+    description: [
+      "I suck at making AntiCheats, as we all know, I have to admit, I am retarded. This",
+      "project is a crappy voxel game that is made by incompetent AntiCheat developers.",
+      "I will quote the following announcement from the Miniblox discord: ",
+      "I haven't and I won't take an IQ test. If I did, I would probably get -Infinity.",
+      "Considering all the stupid programming things I've done",
+      "(forgetting to deploy my server production builds to the Discord Activity version",
+      " (which allowed people to bypass my VPN and IP checks, as the version it used didn't have any of it),",
+      " forgetting to validate CAPTCHA tokens whenever someone joined in my stupid idea of",
+      `"fending off Miniblox from Translation Layer users"`,
+      ", because I can't fix my AC/Anti Cheat because I'm stupid, so instead,",
+      "I'll screw around with the translation layer users,",
+      "hopefully no one continues the Vape For Miniblox script and does it silently so I can make my stupid prototype proxy checks).",
+      "I also will solve the wrong problem, for example, I blocked VPNs because of Cheaters / Vape users, ",
+      "instead of fixing my AntiCheat. VPNs are also important for bypassing government censorship, ",
+      "but I block tor because I will fix the problem with the wrong fix. ",
+      "Someone needs to help me now, I need mental help. ",
+      "I can't comprehend the idea of actually fixing the problem instead of blocking VPN users and / or trying to detect translation layer users & vape users."
+    ].join("\n"),
     tools: ["Typescript", "Three.js", "Chakra UI", "Kubernetes", "Docker"],
     links: {
       github: "https://github.com/minibloxio",
