@@ -38,7 +38,7 @@ const data: WorkExperienceData = {
       "Launched a multiplayer voxel game written in Typescript using Three.js/Socket.io, currently garnering over 1.1 million monthly active users.",
       "Developed a streamlined CI/CD pipeline with Github Actions to build and release to S3, which is served on Cloudfront.",
       "Built a highly-scalable distributed infrastructure system using ArgoCD to auto-deploy Helm charts in DigitalOcean K8s.",
-      "Boosted revenue by 300% by integrating in-game micro-transactions and video ad monetization through Stripe and Adsense.",
+      "Boosted revenue by 300% by integrating in-game micro-transactions and video ad monetization through Stripe and Adsense (tip: use uBlock Origin).",
     ],
   },
   "ArenaX Labs": {
