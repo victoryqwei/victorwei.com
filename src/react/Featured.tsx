@@ -60,7 +60,7 @@ const data: ProjectData = {
       "Someone needs to help me now, I need mental help. ",
       "I can't comprehend the idea of actually fixing the problem instead of blocking VPN users and / or trying to detect translation layer users & vape users."
     ].join("\n"),
-    tools: ["Typescript", "Three.js", "Chakra UI", "Kubernetes", "Docker"],
+    tools: ["Typescript", "Socket.IO", "MessagePack", "All of Minecraft's source code", "Three.js", "Chakra UI", "Kubernetes", "Docker"],
     links: {
       github: "https://github.com/minibloxio",
       website: "https://miniblox.io",
