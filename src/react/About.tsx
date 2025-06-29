@@ -1,11 +1,6 @@
-import { Box, HStack, Heading, Text, Image, VStack, List, ListItem, ListIcon, Center, SimpleGrid, Link } from "@chakra-ui/react";
-import headshot from "../assets/headshot.jpg";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { useMobile } from "../utils/hooks";
+import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 
 const About: React.FC = () => {
-  const [isMobile] = useMobile();
-
   return (
     <Box id="about" pt="6em">
       <Heading fontSize="3xl" mb="1em">
@@ -14,20 +9,14 @@ const About: React.FC = () => {
       <HStack alignItems="flex-start">
         <VStack alignItems="flex-start" fontSize="1rem">
           <Text>
-            Greetings! I'm Victor, student at the University of Waterloo and a passionate software enthusiast who enjoys crafting diverse
-            software experiences. Outside of classes, I've been hacking away on projects such as a car physics simulator and an AI-powered
-            fighter game. I'm particularly drawn to computer vision, seeing its potential in real-world applications from autonomous
-            vehicles to medical applications like cancer detection.
+            Hey there! I’m Victor Wei, a Software Engineering student at the University of Waterloo with a passion for building thoughtful,
+            high-impact software. I’ve developed and launched fullstack applications, multiplayer games with millions of players, and
+            infrastructure tools that support real-world scalability.
           </Text>
 
-          <Text>
-            Recently, I've been working on Miniblox, a multiplayer voxel engine that runs in the browser. Feel free to check it out @{" "}
-            <Link color="blue.400" href="https://miniblox.io" target="_blank">
-              miniblox.io
-            </Link>
-          </Text>
+          <Text>Outside of work and classes, I've been hacking away at a few web-based games. Feel free to check them out below!</Text>
 
-          <Text>Here's a few technologies I've been working with recently:</Text>
+          {/* <Text>Here's a few technologies I've been working with recently:</Text>
 
           <SimpleGrid columns={2} spacing={2} w="90%">
             <List>
@@ -63,16 +52,16 @@ const About: React.FC = () => {
                 Kubernetes
               </ListItem>
             </List>
-          </SimpleGrid>
+          </SimpleGrid> */}
         </VStack>
 
-        {!isMobile && <Image src={headshot} h="300px"></Image>}
+        {/* {!isMobile && <Image src={headshot} h="300px"></Image>} */}
       </HStack>
-      {isMobile && (
+      {/* {isMobile && (
         <Center w="100%">
           <Image src={headshot} h="300px" mt="2em"></Image>
         </Center>
-      )}
+      )} */}
     </Box>
   );
 };

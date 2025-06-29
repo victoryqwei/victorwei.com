@@ -12,11 +12,15 @@ interface WorkExperienceData {
 }
 
 const data: WorkExperienceData = {
-  Datadog: {
-    title: "Software Engineering Intern",
-    date: "May 2025 - Aug 2025",
-    description: ["Currently working on the DataViz team"],
-  },
+  // Datadog: {
+  //   title: "Software Engineering Intern",
+  //   date: "May 2025 - Aug 2025",
+  //   description: [
+  //     "Currently working on the DataViz team",
+  //     "Added a new custom viewbox feature to the Geomap widget",
+  //     "Improving the UX of the hostmap widget by",
+  //   ],
+  // },
   X: {
     title: "Software Engineering Intern",
     date: "Jan 2025 - Apr 2025",
@@ -133,7 +137,7 @@ const TabMobile: React.FC<{ name: string; selected?: boolean; setSelected: React
 };
 
 const WorkExperience: React.FC = () => {
-  const [selected, setSelected] = useState("Fleet");
+  const [selected, setSelected] = useState(Object.keys(data)[0]);
   const [isMobile] = useMobile();
 
   return (
