@@ -1,6 +1,6 @@
-import { Button, Center, Heading, Link, VStack, Text, Box, HStack } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, HStack, Link, Text, VStack } from "@chakra-ui/react";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { useMobile } from "../utils/hooks";
-import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 import SocialIcon from "./components/SocialIcon";
 
 const Contact: React.FC = () => {
@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
           <HStack gap="1.5em">
             <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" />
             <SocialIcon icon={<FiLinkedin size="1.3em" />} link="https://www.linkedin.com/in/victoryqwei/" />
-            <SocialIcon icon={<FiInstagram size="1.3em" />} link="https://www.instagram.com/victoryqwei/" />
+            {/* <SocialIcon icon={<FiInstagram size="1.3em" />} link="https://www.instagram.com/victoryqwei/" /> */}
             <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" />
           </HStack>
         )}
@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
             brittany
           </Link>{" "}
           |  */}
-          © 2024 Victor Wei
+          © 2025 Victor Wei
         </Text>
       </VStack>
     </>

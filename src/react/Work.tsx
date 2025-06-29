@@ -12,6 +12,21 @@ interface WorkExperienceData {
 }
 
 const data: WorkExperienceData = {
+  Datadog: {
+    title: "Software Engineering Intern",
+    date: "May 2025 - Aug 2025",
+    description: ["Currently working on the DataViz team"],
+  },
+  X: {
+    title: "Software Engineering Intern",
+    date: "Jan 2025 - Apr 2025",
+    description: [
+      "Transitioned serving engine for home recommendations from CPU to GPU inference, reducing request latency by 30%.",
+      "Improved dashboard query performance by 80% and streamlined automated deployments using Python scripts.",
+      "Optimized fleet deployment strategies by conducting daily workflow-based load tests and squeeze tests.",
+      "Converted internal serving engines from Slurm to Kubernetes to enable autoscaling and minimize manual tasks.",
+    ],
+  },
   Fleet: {
     title: "Software Engineering Intern",
     date: "May 2024 - Aug 2024",

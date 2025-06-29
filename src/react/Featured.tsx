@@ -1,5 +1,6 @@
 import { Box, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import airflip from "../assets/airflip.png";
+import mergeRot from "../assets/merge-rot.png";
 import miniblox from "../assets/miniblox.png";
 import quickmark from "../assets/quickmark.png";
 import { useMobile } from "../utils/hooks";
@@ -12,7 +13,7 @@ interface ProjectData {
     description: string;
     tools: string[];
     links: {
-      github: string;
+      github?: string;
       devpost?: string;
       website: string;
     };
@@ -47,6 +48,15 @@ const data: ProjectData = {
     links: {
       github: "https://github.com/minibloxio",
       website: "https://miniblox.io",
+    },
+  },
+  "Merge Rot": {
+    image: mergeRot,
+    description:
+      "A fun twist on the classic watermelon merge game where players combine quirky items into bizarre, oversized versions. Features multiple themes including italian brainrot, cats, and capybaras.",
+    tools: ["Typescript", "HTML5 Canvas"],
+    links: {
+      website: "https://mergerot.gg",
     },
   },
   AirFlip: {

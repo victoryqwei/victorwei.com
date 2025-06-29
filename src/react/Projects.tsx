@@ -30,7 +30,7 @@ const data: ProjectData = {
     image: interplanetarium,
     description:
       "A multiplayer survival game where a player attempts to survive in space within a little rocket. Shoot down turrets to gain xp and advance to the next stage!",
-    tools: ["Javascript", "Node.js", "Socket.io"],
+    tools: ["JS", "Node.js", "Socket.io"],
     links: {
       github: "https://github.com/victoryqwei/Interplanetarium",
       website: "https://space.victorwei.com/server1",
@@ -39,7 +39,7 @@ const data: ProjectData = {
   GymLens: {
     image: gymlens,
     description: "A virtual gym trainer that uses pose detection to track repetitions and provide feedback on proper form.",
-    tools: ["Javascript", "Angular", "Tensorflow.js"],
+    tools: ["JS", "Angular", "Tensorflow.js"],
     links: {
       github: "https://github.com/victoryqwei/GymLens",
       devpost: "https://devpost.com/software/gymlens-4qkl8y",
@@ -50,10 +50,10 @@ const data: ProjectData = {
     image: core,
     description:
       "A multiplayer game where the main focus is to protect a Core and fight other players. Collect power to upgrade your base to get stronger.",
-    tools: ["Javascript", "Node.js", "Socket.io"],
+    tools: ["JS", "Node.js", "Socket.io"],
     links: {
       github: "https://github.com/victoryqwei/Core",
-      website: "https://core.victorwei.com",
+      // website: "https://core.victorwei.com",
     },
   },
   Knoggin: {
@@ -68,7 +68,7 @@ const data: ProjectData = {
   "3D Car Sim": {
     image: car3d,
     description: "A 3D car simulator that emulates engine, tire, and suspension physics.",
-    tools: ["Javascript", "Three.js"],
+    tools: ["JS", "Three.js"],
     links: {
       github: "https://github.com/victoryqwei/car-3d",
       website: "https://old.victorwei.com/featured/car-3d",
@@ -77,7 +77,7 @@ const data: ProjectData = {
   "Drift Sim": {
     image: driftsim,
     description: "A 2D car drifting simulator which features a basic collision resolution system.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/car-sim",
       website: "https://old.victorwei.com/projects/car-sim",
@@ -86,7 +86,7 @@ const data: ProjectData = {
   "Cloth Sim": {
     description:
       "A cloth simulator using verlet integration to simulate cloth physics. Includes adjustable features such as gravity, wind, and cloth stiffness.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/cloth",
       website: "https://old.victorwei.com/projects/cloth",
@@ -101,7 +101,7 @@ const data: ProjectData = {
   },
   "FlappyBird AI": {
     description: "A self-learning neural network that learns to play Flappy Bird using a genetic algorithm.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/flappybird",
       website: "https://old.victorwei.com/projects/flappybird",
@@ -109,14 +109,14 @@ const data: ProjectData = {
   },
   "Snake AI": {
     description: "A self-learning neural network that learns to play Snake using a genetic algorithm.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       website: "https://old.victorwei.com/projects/snake",
     },
   },
   "Car AI": {
     description: "A neural evolution of augmenting topologies (NEAT) algorithm that trains a car to drive itself through a track.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/car",
       website: "https://old.victorwei.com/projects/car",
@@ -124,7 +124,7 @@ const data: ProjectData = {
   },
   "Metro Game": {
     description: "A transit game that simulates the movement of buses and passengers.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/metro",
       website: "https://old.victorwei.com/projects/metro",
@@ -132,7 +132,7 @@ const data: ProjectData = {
   },
   Pool: {
     description: "A 2D pool game with basic physics and collision detection.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/pool",
       website: "https://old.victorwei.com/projects/pool",
@@ -140,14 +140,14 @@ const data: ProjectData = {
   },
   "2.5D Shooter": {
     description: "A basic shooter game with Wolfenstein 3D style graphics.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       website: "https://old.victorwei.com/projects/ray",
     },
   },
   "2048 Solver": {
     description: "Solves 2028 using a look-ahead heuristic algorithm.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/2048",
       website: "https://old.victorwei.com/projects/2048",
@@ -156,14 +156,14 @@ const data: ProjectData = {
   "Maze Runner": {
     description:
       "A game where a player tries to escapes a procedurally generated maze while chased by an enemy. Uses the A* algorithm to track the player.",
-    tools: ["Javascript", "HTML5 Canvas"],
+    tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/Maze-Runner",
     },
   },
   "Old Website": {
     description: "My previous iteration of victorwei.com",
-    tools: ["Javascript", "Angular", "Node.js"],
+    tools: ["JS", "Angular", "Node.js"],
     links: {
       github: "https://github.com/victoryqwei/personal",
       website: "https://old.victorwei.com",
@@ -199,13 +199,13 @@ const Projects: React.FC = () => {
                   cursor: "pointer",
                 }}
                 transition="0.3s"
-                // onClick={(e) => {
-                //   if (data[name].links.website) {
-                //     window.open(data[name].links.website, "_blank");
-                //   } else if (data[name].links.github) {
-                //     window.open(data[name].links.github, "_blank");
-                //   }
-                // }}
+                onClick={() => {
+                  if (data[name].links.website) {
+                    window.open(data[name].links.website, "_blank");
+                  } else if (data[name].links.github) {
+                    window.open(data[name].links.github, "_blank");
+                  }
+                }}
                 role={!data[name].image || isMobile ? undefined : "group"}>
                 {data[name].image && (
                   <Image
