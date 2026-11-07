@@ -1,4 +1,4 @@
-import { Box, Button, Center, Heading, HStack, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { useMobile } from "../utils/hooks";
 import SocialIcon from "./components/SocialIcon";
@@ -14,29 +14,23 @@ const Contact: React.FC = () => {
           <VStack gap="1em">
             <Heading fontSize="4xl">Get In Touch</Heading>
             <Text mb="3em">If you have any questions or just want to say hi, feel free to reach out to me!</Text>
-            <Link href="mailto:victoryqwei@gmail.com" target="_blank">
-              <Button
-                backgroundColor="transparent"
-                border="
-                1px solid white"
-                color="white"
-                p="1em"
-                _hover={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                }}>
-                Contact Me!
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="mailto:victoryqwei@gmail.com"
+              variant="accent"
+              p="1em">
+              Contact Me!
+            </Button>
           </VStack>
         </VStack>
       </Center>
       <VStack gap="1em" py="2em">
         {isMobile && (
           <HStack gap="1.5em">
-            <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" />
-            <SocialIcon icon={<FiLinkedin size="1.3em" />} link="https://www.linkedin.com/in/victoryqwei/" />
+            <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" label="GitHub" />
+            <SocialIcon icon={<FiLinkedin size="1.3em" />} link="https://www.linkedin.com/in/victoryqwei/" label="LinkedIn" />
             {/* <SocialIcon icon={<FiInstagram size="1.3em" />} link="https://www.instagram.com/victoryqwei/" /> */}
-            <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" />
+            <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" label="Email" />
           </HStack>
         )}
         <Text>
@@ -45,7 +39,7 @@ const Contact: React.FC = () => {
             brittany
           </Link>{" "}
           |  */}
-          © 2025 Victor Wei
+          © {new Date().getFullYear()} Victor Wei
         </Text>
       </VStack>
     </>

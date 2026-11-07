@@ -2,15 +2,15 @@ import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 
 const About: React.FC = () => {
   return (
-    <Box id="about" pt="6em">
+    <Box id="about" pt="5em">
       <Heading fontSize="3xl" mb="1em">
         About Me
       </Heading>
       <HStack alignItems="flex-start">
         <VStack alignItems="flex-start" fontSize="1rem">
           <Text>
-            Hey there! I’m Victor Wei, a Software Engineering student at the University of Waterloo with a passion for building thoughtful,
-            high-impact software. I’ve developed and launched fullstack applications, multiplayer games with millions of players, and
+            Hey there! I'm Victor Wei, a Software Engineering student at the University of Waterloo with a passion for building thoughtful,
+            high-impact software. I've developed and launched full-stack applications, multiplayer games with millions of players, and
             infrastructure tools that support real-world scalability.
           </Text>
 

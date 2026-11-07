@@ -71,6 +71,9 @@ const Toys: React.FC<{
         {powered && (
           <Tooltip label="Toy settings" closeOnClick={false} placement="left">
             <Box
+              as="button"
+              type="button"
+              aria-label="Toy settings"
               onClick={onOpen}
               _hover={{
                 transform: "scale(1.2)",
@@ -84,6 +87,10 @@ const Toys: React.FC<{
 
         <Tooltip label={powered ? "Turn off toys" : "Turn on toys"} closeOnClick={false} placement="left">
           <Box
+            as="button"
+            type="button"
+            aria-label={powered ? "Turn off toys" : "Turn on toys"}
+            aria-pressed={powered}
             p="1em"
             onClick={() => {
               setPowered(!powered);

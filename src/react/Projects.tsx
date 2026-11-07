@@ -1,14 +1,15 @@
 import { Box, Button, Center, HStack, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import car3d from "../assets/projects/car3d.png";
-import core from "../assets/projects/core.png";
-import driftsim from "../assets/projects/driftsim.png";
-import gymlens from "../assets/projects/gymlens.png";
-import interplanetarium from "../assets/projects/interplanetarium.png";
-import knoggin from "../assets/projects/knoggin.png";
+import car3d from "../assets/projects/car3d.webp";
+import core from "../assets/projects/core.webp";
+import driftsim from "../assets/projects/driftsim.webp";
+import gymlens from "../assets/projects/gymlens.webp";
+import interplanetarium from "../assets/projects/interplanetarium.webp";
+import knoggin from "../assets/projects/knoggin.webp";
 import { useMobile } from "../utils/hooks";
 import FadeInSection from "./components/FadeInSection";
 import SocialStack from "./components/SocialStack";
+import ToolTags from "./components/ToolTags";
 
 interface ProjectData {
   [key: string]: {
@@ -30,7 +31,7 @@ const data: ProjectData = {
     image: interplanetarium,
     description:
       "A multiplayer survival game where a player attempts to survive in space within a little rocket. Shoot down turrets to gain xp and advance to the next stage!",
-    tools: ["JS", "Node.js", "Socket.io"],
+    tools: ["JS", "Node.js", "Socket.IO"],
     links: {
       github: "https://github.com/victoryqwei/Interplanetarium",
       website: "https://space.victorwei.com/server1",
@@ -39,7 +40,7 @@ const data: ProjectData = {
   GymLens: {
     image: gymlens,
     description: "A virtual gym trainer that uses pose detection to track repetitions and provide feedback on proper form.",
-    tools: ["JS", "Angular", "Tensorflow.js"],
+    tools: ["JS", "Angular", "TensorFlow.js"],
     links: {
       github: "https://github.com/victoryqwei/GymLens",
       devpost: "https://devpost.com/software/gymlens-4qkl8y",
@@ -50,7 +51,7 @@ const data: ProjectData = {
     image: core,
     description:
       "A multiplayer game where the main focus is to protect a Core and fight other players. Collect power to upgrade your base to get stronger.",
-    tools: ["JS", "Node.js", "Socket.io"],
+    tools: ["JS", "Node.js", "Socket.IO"],
     links: {
       github: "https://github.com/victoryqwei/Core",
       // website: "https://core.victorwei.com",
@@ -59,7 +60,7 @@ const data: ProjectData = {
   Knoggin: {
     image: knoggin,
     description: "A web app with a collection of brain training games to help improve memory and focus.",
-    tools: ["Typescript", "React"],
+    tools: ["TypeScript", "React"],
     links: {
       github: "https://github.com/NatHacks-Bird-Brain/knoggin",
       devpost: "https://devpost.com/software/knoggin",
@@ -146,7 +147,7 @@ const data: ProjectData = {
     },
   },
   "2048 Solver": {
-    description: "Solves 2028 using a look-ahead heuristic algorithm.",
+    description: "Solves 2048 using a look-ahead heuristic algorithm.",
     tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/2048",
@@ -155,7 +156,7 @@ const data: ProjectData = {
   },
   "Maze Runner": {
     description:
-      "A game where a player tries to escapes a procedurally generated maze while chased by an enemy. Uses the A* algorithm to track the player.",
+      "A game where a player tries to escape a procedurally generated maze while chased by an enemy. Uses the A* algorithm to track the player.",
     tools: ["JS", "HTML5 Canvas"],
     links: {
       github: "https://github.com/victoryqwei/Maze-Runner",
@@ -176,7 +177,7 @@ const Projects: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="more_projects" py="6em" w="100%">
+    <Box id="more_projects" py="5em" w="100%">
       <Heading fontSize="3xl" mb="1em">
         More Projects
       </Heading>
@@ -189,17 +190,24 @@ const Projects: React.FC = () => {
             <FadeInSection key={i}>
               <Box
                 position="relative"
-                borderRadius="3px"
-                borderWidth="1px"
+                borderRadius="8px"
+                border="1px solid"
+                borderColor="whiteAlpha.200"
                 overflow="hidden"
-                bgColor="#363636"
+                bgColor="#2e2e2e"
                 h="100%"
+                boxShadow="0 4px 16px rgba(0, 0, 0, 0.25)"
                 _hover={{
-                  transform: "scale(1.05)",
+                  transform: "translateY(-4px)",
+                  borderColor: "accent.300",
+                  boxShadow: "0 12px 28px rgba(0, 0, 0, 0.4)",
                   cursor: "pointer",
                 }}
                 transition="0.3s"
-                onClick={() => {
+                onClick={(e) => {
+                  // Icon links inside the card handle their own clicks
+                  if ((e.target as HTMLElement).closest("a")) return;
+
                   if (data[name].links.website) {
                     window.open(data[name].links.website, "_blank");
                   } else if (data[name].links.github) {
@@ -213,12 +221,13 @@ const Projects: React.FC = () => {
                     w="100%"
                     h="100%"
                     src={data[name].image}
+                    alt=""
+                    loading="lazy"
                     objectFit="cover"
                     objectPosition="center"
                     filter="brightness(0.2) blur(1.5px)"
                     transition="filter 0.3s"
                     _groupHover={{ filter: "none" }}
-                    borderRadius="2px"
                     zIndex={0}
                   />
                 )}
@@ -234,9 +243,9 @@ const Projects: React.FC = () => {
                   <Text zIndex={0} _groupHover={{ opacity: 0 }} transition="0.3s">
                     {data[name].description}
                   </Text>
-                  <Text color="whiteAlpha.700" zIndex={0} _groupHover={{ opacity: 0 }} transition="0.3s">
-                    {data[name].tools.join(" ")}
-                  </Text>
+                  <Box zIndex={0} _groupHover={{ opacity: 0 }} transition="0.3s">
+                    <ToolTags tools={data[name].tools} />
+                  </Box>
                 </VStack>
               </Box>
             </FadeInSection>
@@ -246,14 +255,8 @@ const Projects: React.FC = () => {
 
       <Center my="2em">
         <Button
-          backgroundColor="transparent"
-          border="
-                1px solid white"
-          color="white"
+          variant="accentOutline"
           p="1em"
-          _hover={{
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-          }}
           onClick={() => {
             setLoadMore(!loadMore);
 

@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-const SocialIcon: React.FC<{ icon: React.ReactNode; link?: string }> = ({ icon, link }) => {
+const SocialIcon: React.FC<{ icon: React.ReactNode; link?: string; label: string }> = ({ icon, link, label }) => {
   if (!link) return null;
 
   return (
@@ -10,10 +10,13 @@ const SocialIcon: React.FC<{ icon: React.ReactNode; link?: string }> = ({ icon, 
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
       _hover={{
         transform: "scale(1.2)",
+        color: "accent.300",
       }}
-      transition="transform 0.2s">
+      transition="transform 0.2s, color 0.2s">
       {icon}
     </Box>
   );

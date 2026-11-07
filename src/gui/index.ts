@@ -43,9 +43,9 @@ class Toys {
   loop(canvas: HTMLCanvasElement) {
     this.animationId = undefined;
     const ctx = canvas.getContext("2d")!;
-    let dt = 0;
     const now = performance.now();
-    dt = now - this.then;
+    // Cap the timestep so a paused tab or re-enabled toy doesn't explode the simulation
+    const dt = Math.min(now - this.then, 100);
 
     this.then = now;
 

@@ -1,11 +1,12 @@
-import { Box, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
-import airflip from "../assets/airflip.png";
-import mergeRot from "../assets/merge-rot.png";
-import miniblox from "../assets/miniblox.png";
-import quickmark from "../assets/quickmark.png";
+import { Box, HStack, Heading, Image, Link, Text, VStack } from "@chakra-ui/react";
+import airflip from "../assets/airflip.webp";
+import mergeRot from "../assets/merge-rot.webp";
+import miniblox from "../assets/miniblox.webp";
+import quickmark from "../assets/quickmark.webp";
 import { useMobile } from "../utils/hooks";
 import FadeInSection from "./components/FadeInSection";
 import SocialStack from "./components/SocialStack";
+import ToolTags from "./components/ToolTags";
 
 interface ProjectData {
   [key: string]: {
@@ -20,22 +21,27 @@ interface ProjectData {
   };
 }
 
-const ProjectImage: React.FC<{ src: string; link: string }> = ({ src, link }) => {
+const ProjectImage: React.FC<{ src: string; link: string; name: string }> = ({ src, link, name }) => {
   return (
-    <Image
+    <Link
+      href={link}
+      isExternal
       w="50%"
-      src={src}
-      filter="blur(1.5px)"
-      transition="filter 0.2s"
-      _hover={{
-        filter: "none",
-        cursor: "pointer",
-      }}
-      borderRadius="2px"
-      onClick={() => {
-        window.open(link, "_blank");
-      }}
-    />
+      role="group"
+      overflow="hidden"
+      borderRadius="8px"
+      boxShadow="0 8px 24px rgba(0, 0, 0, 0.35)">
+      <Image
+        w="100%"
+        src={src}
+        alt={`Screenshot of ${name}`}
+        loading="lazy"
+        filter="brightness(0.85)"
+        transition="filter 0.3s, transform 0.3s"
+        _groupHover={{ filter: "none", transform: "scale(1.03)" }}
+        _groupFocusVisible={{ filter: "none", transform: "scale(1.03)" }}
+      />
+    </Link>
   );
 };
 
@@ -44,7 +50,7 @@ const data: ProjectData = {
     image: miniblox,
     description:
       "A multiplayer voxel game playable on the web browser. Offers a variety of features, including competitive minigames, a wide selection of blocks to build with, challenging parkour levels, and much more! Currently attracting over 1.1 million monthly active users.",
-    tools: ["Typescript", "Three.js", "Chakra UI", "Kubernetes", "Docker"],
+    tools: ["TypeScript", "Three.js", "Chakra UI", "Kubernetes", "Docker"],
     links: {
       github: "https://github.com/minibloxio",
       website: "https://miniblox.io",
@@ -53,8 +59,8 @@ const data: ProjectData = {
   "Merge Rot": {
     image: mergeRot,
     description:
-      "A fun twist on the classic watermelon merge game where players combine quirky items into bizarre, oversized versions. Features multiple themes including italian brainrot, cats, and capybaras.",
-    tools: ["Typescript", "HTML5 Canvas"],
+      "A fun twist on the classic watermelon merge game where players combine quirky items into bizarre, oversized versions. Features multiple themes including Italian brainrot, cats, and capybaras.",
+    tools: ["TypeScript", "HTML5 Canvas"],
     links: {
       website: "https://mergerot.gg",
     },
@@ -62,8 +68,8 @@ const data: ProjectData = {
   AirFlip: {
     image: airflip,
     description:
-      "A contactless pdf viewer that allows users to flip through pages using face gestures and auditory commands. Great for musicians, workers, people with disabilities, or just lazy people. Winner of Hack the North 2020++.",
-    tools: ["Python", "React", "Tensorflow.js"],
+      "A contactless PDF viewer that allows users to flip through pages using face gestures and auditory commands. Great for musicians, workers, people with disabilities, or just lazy people. Winner of Hack the North 2020++.",
+    tools: ["Python", "React", "TensorFlow.js"],
     links: {
       github: "https://github.com/victoryqwei/AirFlip",
       devpost: "https://devpost.com/software/airflip",
@@ -87,34 +93,35 @@ const Featured: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="projects" py="6em" w="100%">
+    <Box id="projects" py="5em" w="100%">
       <Heading fontSize="3xl" mb="1em">
         Featured Projects
       </Heading>
 
-      <VStack gap="2em">
+      <VStack gap="3em">
         {Object.keys(data).map((name, i) => {
           const isOdd = i % 2 === 1;
 
           if (isMobile) {
             return (
               <FadeInSection key={i}>
-                <Box position="relative" w="100%" borderRadius="3px">
+                <Box position="relative" w="100%" borderRadius="8px" overflow="hidden" zIndex={0}>
                   <Image
                     position="absolute"
-                    height="100%"
+                    w="100%"
+                    h="100%"
                     src={data[name].image}
+                    alt=""
+                    loading="lazy"
                     objectFit="cover"
                     filter="brightness(0.2) blur(1.5px)"
                     transition="filter 0.2s"
-                    _hover={{ filter: "none" }}
-                    borderRadius="2px"
                     zIndex={-1}
                   />
                   <VStack zIndex={1} gap="1em" align="flex-start" p="1em">
                     <Heading fontSize="2xl">{name}</Heading>
                     <Text>{data[name].description}</Text>
-                    <Text>{data[name].tools.join(" ")}</Text>
+                    <ToolTags tools={data[name].tools} />
 
                     <SocialStack links={data[name].links} />
                   </VStack>
@@ -125,24 +132,18 @@ const Featured: React.FC = () => {
             return (
               <FadeInSection key={i}>
                 <HStack>
-                  {!isOdd && <ProjectImage src={data[name].image} link={data[name].links.website} />}
+                  {!isOdd && <ProjectImage src={data[name].image} link={data[name].links.website} name={name} />}
 
-                  <VStack zIndex={1} gap="1em" align={isOdd ? "flex-start" : "flex-end"} p="1em" w="50%">
+                  <VStack zIndex={1} gap="1em" align={isOdd ? "flex-start" : "flex-end"} py="1em" w="50%">
                     <Heading fontSize="2xl">{name}</Heading>
-                    <Box p="1em" bgColor="#363636" w="120%" borderRadius="3px">
+                    <Box p="1em" bgColor="#2e2e2e" w="120%" borderRadius="8px" boxShadow="0 8px 24px rgba(0, 0, 0, 0.35)">
                       <Text>{data[name].description}</Text>
                     </Box>
-                    <HStack>
-                      {data[name].tools.map((v, i) => (
-                        <Text key={i} whiteSpace="nowrap">
-                          {v}{" "}
-                        </Text>
-                      ))}
-                    </HStack>
+                    <ToolTags tools={data[name].tools} justify={isOdd ? "flex-start" : "flex-end"} />
                     <SocialStack links={data[name].links} />
                   </VStack>
 
-                  {isOdd && <ProjectImage src={data[name].image} link={data[name].links.website} />}
+                  {isOdd && <ProjectImage src={data[name].image} link={data[name].links.website} name={name} />}
                 </HStack>
               </FadeInSection>
             );

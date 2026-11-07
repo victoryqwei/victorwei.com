@@ -1,15 +1,25 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Button, Center, HStack, Heading, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import Typed from "react-typed";
 
 const Title: React.FC = () => {
   return (
-    <Center h="100vh" w="100%" textAlign="center" userSelect="none">
-      <VStack>
-        <Heading fontSize="5xl" mb="0.5em" mt="2em">
-          Hey there, I'm Victor.
+    <Center position="relative" h="100vh" w="100%" textAlign="center" userSelect="none">
+      <Box
+        position="absolute"
+        inset="0"
+        pointerEvents="none"
+        bgImage="radial-gradient(closest-side, rgba(230, 31, 56, 0.16), transparent)"
+      />
+      <VStack position="relative">
+        <Heading fontSize={["5xl", "6xl", "7xl"]} lineHeight="1.05" letterSpacing="-0.03em" mb="0.4em" mt="1em">
+          Hey there, I'm{" "}
+          <Box as="span" color="accent.300">
+            Victor
+          </Box>
+          .
         </Heading>
-        <Text fontSize="1.2em" mb="1em">
+        <Text fontSize="1.3em" mb="1em">
           I'm{" "}
           <Typed
             style={{
@@ -22,22 +32,17 @@ const Title: React.FC = () => {
           />
         </Text>
 
-        <Link href="#about" my="3em">
-          <Button
-            backgroundColor="transparent"
-            border="
-                1px solid white"
-            color="white"
-            p="1em"
-            _hover={{
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-            }}>
+        <HStack gap="1em" my="2em" flexWrap="wrap" justifyContent="center">
+          <Button as="a" href="#projects" variant="accent" p="1em">
             <HStack gap="0.3em">
-              <Text>Learn More</Text>
+              <Text>See My Work</Text>
               <ArrowForwardIcon />
             </HStack>
           </Button>
-        </Link>
+          <Button as="a" href="#about" variant="accentOutline" p="1em">
+            Learn More
+          </Button>
+        </HStack>
       </VStack>
     </Center>
   );

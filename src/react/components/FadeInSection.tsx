@@ -17,6 +17,8 @@ const FadeInSection: React.FC<{
     });
 
     if (domRef.current) observer.observe(domRef.current);
+
+    return () => observer.disconnect();
   }, []);
   return (
     <Box className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef} w="100%">

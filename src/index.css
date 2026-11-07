@@ -5,6 +5,14 @@ body,
   scroll-behavior: smooth;
 }
 
+::selection {
+  background-color: rgba(230, 31, 56, 0.4);
+}
+
+.typed-cursor {
+  color: #e61f38;
+}
+
 .fade-in-section {
   opacity: 0;
   visibility: hidden;
@@ -39,5 +47,17 @@ body,
 
   100% {
     scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  #root {
+    scroll-behavior: auto;
+  }
+
+  .fade-in-section {
+    transition: none;
   }
 }

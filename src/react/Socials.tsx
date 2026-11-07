@@ -11,10 +11,10 @@ const Socials: React.FC = () => {
   return (
     <Box position="fixed" left="3em" bottom="3em">
       <VStack gap="1.5em">
-        <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" />
-        <SocialIcon icon={<FiLinkedin size="1.3em" />} link="https://www.linkedin.com/in/victoryqwei/" />
+        <SocialIcon icon={<FiGithub size="1.3em" />} link="https://github.com/victoryqwei" label="GitHub" />
+        <SocialIcon icon={<FiLinkedin size="1.3em" />} link="https://www.linkedin.com/in/victoryqwei/" label="LinkedIn" />
         {/* <SocialIcon icon={<FiInstagram size="1.3em" />} link="https://www.instagram.com/victoryqwei/" /> */}
-        <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" />
+        <SocialIcon icon={<FiMail size="1.3em" />} link="mailto:victoryqwei@gmail.com" label="Email" />
       </VStack>
     </Box>
   );

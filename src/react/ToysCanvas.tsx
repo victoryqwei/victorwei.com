@@ -36,19 +36,19 @@ const ToysCanvas: React.FC = () => {
 
     const canvas = canvasRef.current;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    window.addEventListener("resize", () => {
+    const resizeHandler = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
+    };
+    resizeHandler();
+    window.addEventListener("resize", resizeHandler);
 
     toys.animationId = requestAnimationFrame(() => {
       toys.loop(canvas);
     });
 
     return () => {
+      window.removeEventListener("resize", resizeHandler);
       cancelAnimationFrame(toys.animationId!);
     };
   }, [canvasRef]);

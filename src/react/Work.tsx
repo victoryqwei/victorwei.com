@@ -38,26 +38,26 @@ const data: WorkExperienceData = {
       "Revamped user onboarding with React and Google OAuth for passwordless signups, boosting daily sign-up rates by 22%.",
       "Improved billing accuracy and reduced manual payment errors by integrating Stripe to automate invoicing within Django.",
       "Enhanced communication for program cancellations by delivering 500+ daily notifications via Segment and SendGrid.",
-      "Built a CI/CD pipeline with GitHub Actions to streamline client releases to S3 and Cloudfront for efficient deployment.",
+      "Built a CI/CD pipeline with GitHub Actions to streamline client releases to S3 and CloudFront for efficient deployment.",
     ],
   },
   "TD Securities": {
     title: "Software Engineering Intern",
     date: "Sept 2023 - Dec 2023",
     description: [
-      "Efficiently manage both internal and public-facing web tools, APIs, and workflow processes constructed using React and Flask, which play a pivotal role in product lifecycle tracking across diverse data sources.",
-      "Maintain and oversee deal pricing, management, and market intelligence infrastructure within MongoDB and SQL databases, placing emphasis on timely product delivery.",
-      "Apply scalable automation with Rundeck to generate offering documents and marketing materials with 99% accuracy",
+      "Efficiently managed both internal and public-facing web tools, APIs, and workflow processes constructed using React and Flask, which played a pivotal role in product lifecycle tracking across diverse data sources.",
+      "Maintained and oversaw deal pricing, management, and market intelligence infrastructure within MongoDB and SQL databases, placing emphasis on timely product delivery.",
+      "Applied scalable automation with Rundeck to generate offering documents and marketing materials with 99% accuracy.",
     ],
   },
   Miniblox: {
     title: "Co-Founder",
     date: "Jan 2022 - Aug 2023",
     description: [
-      "Launched a multiplayer voxel game written in Typescript using Three.js/Socket.io, currently garnering over 1.1 million monthly active users.",
-      "Developed a streamlined CI/CD pipeline with Github Actions to build and release to S3, which is served on Cloudfront.",
+      "Launched a multiplayer voxel game written in TypeScript using Three.js/Socket.IO, currently garnering over 1.1 million monthly active users.",
+      "Developed a streamlined CI/CD pipeline with GitHub Actions to build and release to S3, which is served on CloudFront.",
       "Built a highly-scalable distributed infrastructure system using ArgoCD to auto-deploy Helm charts in DigitalOcean K8s.",
-      "Boosted revenue by 300% by integrating in-game micro-transactions and video ad monetization through Stripe and Adsense.",
+      "Boosted revenue by 300% by integrating in-game micro-transactions and video ad monetization through Stripe and AdSense.",
     ],
   },
   "ArenaX Labs": {
@@ -66,7 +66,7 @@ const data: WorkExperienceData = {
     description: [
       "Optimized player model performance in an AI-powered platform fighter game, resulting in a 20% fps improvement.",
       "Fine-tuned the learning rate of the in-game Bayesian neural network by isolating regularization lambdas, improving the training efficiency for movement and action outputs.",
-      "Refactored the codebase from Javascript to Typescript, enabling a smoother workflow and higher code quality.",
+      "Refactored the codebase from JavaScript to TypeScript, enabling a smoother workflow and higher code quality.",
     ],
   },
   Voiceflow: {
@@ -96,10 +96,14 @@ const Tab: React.FC<{ name: string; selected?: boolean; setSelected: React.Dispa
 }) => {
   return (
     <Box
+      as="button"
+      type="button"
+      aria-pressed={selected}
       w="100%"
       p="0.5em"
-      borderLeft={selected ? "4px solid" : "4px solid"}
-      borderColor={selected ? "white.500" : "transparent"}
+      textAlign="left"
+      borderLeft="4px solid"
+      borderColor={selected ? "accent.500" : "transparent"}
       bgColor={selected ? "rgba(255, 255, 255, 0.1)" : "transparent"}
       _hover={{
         bg: { base: "transparent", md: "rgba(255, 255, 255, 0.1)" },
@@ -119,14 +123,17 @@ const TabMobile: React.FC<{ name: string; selected?: boolean; setSelected: React
 }) => {
   return (
     <Box
+      as="button"
+      type="button"
+      aria-pressed={selected}
       w="100%"
       p="0.5em"
-      borderBottom={selected ? "4px solid" : "4px solid"}
-      borderColor={selected ? "white.500" : "transparent"}
+      borderBottom="4px solid"
+      borderColor={selected ? "accent.500" : "transparent"}
       bgColor={selected ? "rgba(255, 255, 255, 0.1)" : "transparent"}
       _hover={{
         bgColor: "rgba(255, 255, 255, 0.1)",
-        borderColor: "white.500",
+        borderColor: "accent.500",
         cursor: "pointer",
       }}
       onClick={() => setSelected(name)}
@@ -141,25 +148,27 @@ const WorkExperience: React.FC = () => {
   const [isMobile] = useMobile();
 
   return (
-    <Box id="experience" py="6em" h={isMobile ? "40em" : "32em"}>
+    <Box id="experience" py="5em" minH={isMobile ? "40em" : "34em"}>
       <Heading fontSize="3xl" mb="1em">
         Work Experience
       </Heading>
 
       {isMobile && (
         <VStack alignItems="flex-start" gap="1em">
-          <HStack gap={0} overflow="scroll" maxW="100%">
+          <HStack gap={0} overflowX="auto" maxW="100%">
             {Object.keys(data).map((name, i) => (
               <TabMobile key={i} name={name} selected={selected === name} setSelected={setSelected} />
             ))}
           </HStack>
           <VStack alignItems="flex-start">
             <Heading fontSize="1.2rem">{data[selected].title}</Heading>
-            <Text fontSize="1rem">{data[selected].date}</Text>
+            <Text fontSize="sm" color="whiteAlpha.700">
+              {data[selected].date}
+            </Text>
             <List>
               {data[selected].description.map((desc, i) => (
                 <ListItem key={i}>
-                  <ListIcon as={ChevronRightIcon} />
+                  <ListIcon as={ChevronRightIcon} color="accent.300" />
                   {desc}
                 </ListItem>
               ))}
@@ -177,11 +186,13 @@ const WorkExperience: React.FC = () => {
           </VStack>
           <VStack alignItems="flex-start">
             <Heading fontSize="1.2rem">{data[selected].title}</Heading>
-            <Text fontSize="1rem">{data[selected].date}</Text>
+            <Text fontSize="sm" color="whiteAlpha.700">
+              {data[selected].date}
+            </Text>
             <List>
               {data[selected].description.map((desc, i) => (
                 <ListItem key={i}>
-                  <ListIcon as={ChevronRightIcon} />
+                  <ListIcon as={ChevronRightIcon} color="accent.300" />
                   {desc}
                 </ListItem>
               ))}

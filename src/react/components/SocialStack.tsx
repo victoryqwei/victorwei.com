@@ -13,9 +13,9 @@ const SocialStack: React.FC<{
 }> = ({ isWhite, links }) => {
   return (
     <HStack gap="0.7em" _groupHover={{ color: isWhite ? "white" : "black" }}>
-      <SocialIcon icon={<FiGithub size="1.3em" />} link={links.github} />
-      <SocialIcon icon={<DevpostIcon size="1.3em" />} link={links.devpost} />
-      <SocialIcon icon={<FiExternalLink size="1.3em" />} link={links.website} />
+      <SocialIcon icon={<FiGithub size="1.3em" />} link={links.github} label="GitHub" />
+      <SocialIcon icon={<DevpostIcon size="1.3em" />} link={links.devpost} label="Devpost" />
+      <SocialIcon icon={<FiExternalLink size="1.3em" />} link={links.website} label="Website" />
     </HStack>
   );
 };

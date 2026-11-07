@@ -1,25 +1,25 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, HStack, Image, Link, Menu, MenuButton, MenuItem, MenuList, SlideFade, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import vectorLogo from "../assets/vector.png";
 import { AcrylicBackgroundChakraProps } from "../gui/constants";
 import { useMobile } from "../utils/hooks";
 
 const NavBar: React.FC = () => {
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const prevScrollPos = useRef(window.scrollY);
   const [visible, setVisible] = useState(true);
 
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY;
-    setVisible(prevScrollPos > currentScrollPos || window.scrollY < 50);
-    setPrevScrollPos(currentScrollPos);
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setVisible(prevScrollPos.current > currentScrollPos || currentScrollPos < 50);
+      prevScrollPos.current = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   const [isMobile] = useMobile();
 
@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
       <SlideFade in={visible} offsetY="-3.8rem">
         <HStack justifyContent="space-between" p="1rem" {...AcrylicBackgroundChakraProps}>
           <Link
-            href="https://victorwei.com"
+            href="/"
             style={{
               textDecoration: "none",
             }}
@@ -50,21 +50,21 @@ const NavBar: React.FC = () => {
           </Link>
           {isMobile ? (
             <Menu>
-              <MenuButton>
+              <MenuButton aria-label="Open navigation menu">
                 <HamburgerIcon boxSize="1.5em" />
               </MenuButton>
               <MenuList color="black">
-                <MenuItem>
-                  <Link href="#about">About</Link>
+                <MenuItem as="a" href="#about">
+                  About
                 </MenuItem>
-                <MenuItem>
-                  <Link href="#experience">Experience</Link>
+                <MenuItem as="a" href="#experience">
+                  Experience
                 </MenuItem>
-                <MenuItem>
-                  <Link href="#projects">Projects</Link>
+                <MenuItem as="a" href="#projects">
+                  Projects
                 </MenuItem>
-                <MenuItem>
-                  <Link href="#contact">Contact</Link>
+                <MenuItem as="a" href="#contact">
+                  Contact
                 </MenuItem>
                 {/* <MenuItem>
                   <Link href={resume} target="_blank">
